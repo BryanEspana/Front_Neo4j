@@ -2,24 +2,54 @@
   <img src="../../../../assets/spiderman.png" class="spidey">
 
   <img src="../../../../assets/batman.png" class="batman">
-  <p-card class="cardCentrada">
+  <p-card class="cardCentrada" *ngIf="!isNotRegistered">
     <h1>Iniciar sesión</h1>
     <!--User-->
     <p-inputGroup>
       <p-inputGroupAddon>
           <i class="pi pi-user"></i>
       </p-inputGroupAddon>
-      <input pInputText placeholder="Usuario" />
+      <input pInputText placeholder="Usuario" [(ngModel)]="UserNameLogin" />
     </p-inputGroup>
     <!--Password-->
     <p-inputGroup>
         <p-inputGroupAddon>
           <i class="pi pi-lock"></i>
         </p-inputGroupAddon>
-        <input type="text" pInputText placeholder="Contraseña" />
+        <input type="text" pInputText placeholder="Contraseña" [(ngModel)]="PasswordLogin" />
     </p-inputGroup>
+    <p>¿No tienes una cuenta? <span (click)="RegisteredClick()">Registrate</span></p>
+    <p-button label="Ingresar" severity="danger"  [loading]="loading" (onClick)="Login()"></p-button>
 
-    <p-button label="Entrar" severity="danger"  [loading]="loading" (onClick)="load()"></p-button>
+  </p-card>
+  
+
+  <p-card class="cardCentrada" *ngIf="isNotRegistered">
+    <h1>Registrarse</h1>
+    <!--User-->
+    <p-inputGroup>
+      <p-inputGroupAddon>
+          <i class="pi pi-user"></i>
+      </p-inputGroupAddon>
+      <input pInputText placeholder="Usuario" [(ngModel)]="UserNameRegister"/>
+    </p-inputGroup>
+    <!--Password-->
+    <p-inputGroup>
+        <p-inputGroupAddon>
+          <i class="pi pi-lock"></i>
+        </p-inputGroupAddon>
+        <input type="text" pInputText placeholder="Contraseña"  [(ngModel)]="PasswordRegister" />
+    </p-inputGroup>
+        <!--Password-->
+        <p-inputGroup>
+          <p-inputGroupAddon>
+            <i class="pi pi-lock"></i>
+          </p-inputGroupAddon>
+          <input type="text" pInputText placeholder="Confirmar contraseña"   [(ngModel)]="PasswordConfirmRegister"/>
+      </p-inputGroup>
+    <p>¿Si tienes una cuenta? <span (click)="RegisteredClick()">Inicia sesión</span></p>
+
+    <p-button label="Crear cuenta" severity="danger"  [loading]="loading" (onClick)="load()"></p-button>
 
   </p-card>
 

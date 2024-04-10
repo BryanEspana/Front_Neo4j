@@ -7,10 +7,14 @@ import { LoginComponent } from './pages/auth/Login/Login.component';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ButtonModule } from 'primeng/button';
+import { FormsModule } from '@angular/forms'; // Importar FormsModule
+import { HomeComponent } from './pages/home/Home/Home.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +22,8 @@ import { ButtonModule } from 'primeng/button';
     CardModule,
     InputGroupModule,
     InputGroupAddonModule,
-    ButtonModule
+    ButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
