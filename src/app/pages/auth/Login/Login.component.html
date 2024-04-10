@@ -1,22 +1,26 @@
 <div class="pageComplete">
+  <img src="../../../../assets/spiderman.png" class="spidey">
 
+  <img src="../../../../assets/batman.png" class="batman">
   <p-card class="cardCentrada">
-    <h1>Login</h1>
+    <h1>Iniciar sesión</h1>
+    <!--User-->
     <p-inputGroup>
       <p-inputGroupAddon>
           <i class="pi pi-user"></i>
       </p-inputGroupAddon>
-      <input pInputText placeholder="Username" />
-  </p-inputGroup>
-  <p-inputGroup>
-      <p-inputGroupAddon>$</p-inputGroupAddon>
-      <input type="text" pInputText placeholder="Price" />
-      <p-inputGroupAddon>.00</p-inputGroupAddon>
-  </p-inputGroup>
-  <p-inputGroup>
-      <p-inputGroupAddon>www</p-inputGroupAddon>
-      <input type="text" pInputText placeholder="Website" />
-  </p-inputGroup>
+      <input pInputText placeholder="Usuario" />
+    </p-inputGroup>
+    <!--Password-->
+    <p-inputGroup>
+        <p-inputGroupAddon>
+          <i class="pi pi-lock"></i>
+        </p-inputGroupAddon>
+        <input type="text" pInputText placeholder="Contraseña" />
+    </p-inputGroup>
+
+    <p-button label="Entrar" severity="danger"  [loading]="loading" (onClick)="load()"></p-button>
+
   </p-card>
 
 </div>

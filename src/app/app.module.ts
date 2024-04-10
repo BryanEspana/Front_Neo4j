@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/auth/Login/Login.component';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { ButtonModule } from 'primeng/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
     AppRoutingModule,
     CardModule,
     InputGroupModule,
-    InputGroupAddonModule
+    InputGroupAddonModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,3 +6,28 @@
     margin: auto;
     width: min-content;
 }
+.pageComplete{
+    //imagen de fondo
+    background-image: url('../../../../assets/fondo.webp ');
+    
+}
+
+.spidey{
+    position: fixed !important;
+    top: -50px;
+    right: 0;
+}
+.batman{
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+}
+@media screen and (max-width: 768px){
+    .spidey{
+        display: none;
+    }
+    .batman{
+        display: none;
+    }
+    
+}

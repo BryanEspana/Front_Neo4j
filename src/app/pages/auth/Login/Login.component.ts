@@ -6,7 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./Login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  loading: boolean = false;
+  load() {
+    this.loading = true;
 
+    setTimeout(() => {
+        this.loading = false
+    }, 2000);
+}
   constructor() { }
 
   ngOnInit() {
