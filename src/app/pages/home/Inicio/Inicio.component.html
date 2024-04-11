@@ -1,5 +1,5 @@
 <div class="pageInicio">
-  <p-carousel [value]="images" class="carousel" [numVisible]="1" [numScroll]="1" [circular]="false" >
+  <p-carousel [value]="images" class="carousel" [numVisible]="1" [numScroll]="1" [numScroll]="1" [circular]="true" autoplayInterval>
     <ng-template let-img pTemplate="item">
         <div class="text-center">
             <img [src]="img" class="images" [alt]="img" style="max-width: 100%;">
