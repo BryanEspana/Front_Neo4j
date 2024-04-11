@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SweetToastService } from 'src/app/services/sweetToast.service';
+import Swal from 'sweetalert2';
+
+
 
 @Component({
   selector: 'app-Login',
@@ -26,7 +30,9 @@ export class LoginComponent implements OnInit {
 }
   constructor(
     private route: Router,
-    private ActRouter: ActivatedRoute
+    private ActRouter: ActivatedRoute,
+    private toastService: SweetToastService
+
   ) { }
 
   ngOnInit() {
@@ -45,12 +51,21 @@ export class LoginComponent implements OnInit {
     if(this.UserNameLogin == 'admin' && this.PasswordLogin == 'admin'){
       setTimeout(() => {
           this.loading = false
+          this.toastService.show({
+            icon: "success",
+            title: "Inicio de sesión valido"
+          });
+          this.route.navigate(['home']);
       }, 1000);
-        this.route.navigate(['home']);
     }else{
       setTimeout(() => {
         this.loading = false
+        this.toastService.show({
+          icon: "error",
+          title: "Usuario o contraseña invalido"
+        });
     }, 1000);
+
     }
 }
 }
