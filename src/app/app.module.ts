@@ -9,12 +9,19 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms'; // Importar FormsModule
 import { HomeComponent } from './pages/home/Home/Home.component';
-
+import { ToolbarModule } from 'primeng/toolbar';
+import { SidebarComponent } from './pages/home/Sidebar/Sidebar.component';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import { CarouselModule } from 'primeng/carousel';
+import { InicioComponent } from './pages/home/Inicio/Inicio.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    SidebarComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +30,11 @@ import { HomeComponent } from './pages/home/Home/Home.component';
     InputGroupModule,
     InputGroupAddonModule,
     ButtonModule,
-    FormsModule
+    FormsModule,
+    ToolbarModule,
+    AvatarModule,
+    AvatarGroupModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
