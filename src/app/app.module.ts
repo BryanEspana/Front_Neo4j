@@ -16,8 +16,7 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { CarouselModule } from 'primeng/carousel';
 import { InicioComponent } from './pages/home/Inicio/Inicio.component';
 import { FooterComponent } from './pages/home/footer/footer.component';
-
-
+import { MenuModule } from 'primeng/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +38,7 @@ import { FooterComponent } from './pages/home/footer/footer.component';
     AvatarModule,
     AvatarGroupModule,
     CarouselModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

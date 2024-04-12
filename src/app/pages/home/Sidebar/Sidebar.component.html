@@ -11,9 +11,11 @@
       </div>
   </ng-template>
   <ng-template pTemplate="end">
-      <div class="center displayrow">
-          <p-avatar label="B" shape="circle" />
-          <span class="font-bold text-bluegray-50">{{username}}</span>
-      </div>
+    <div class="center displayrow" style="cursor: pointer;" (click)="menu.toggle($event)">
+      <p-avatar label="B" shape="circle"></p-avatar>
+      <span class="font-bold text-bluegray-50">{{username}}</span>
+    </div>
+    <p-menu #menu [popup]="true" [model]="items"></p-menu>
   </ng-template>
+
 </p-toolbar>
