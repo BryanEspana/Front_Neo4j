@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-Sidebar',
@@ -11,6 +12,7 @@ export class SidebarComponent implements OnInit {
   items: any[] = [];
 
   constructor(
+    private route: Router,
 
   ) {
     this.items = [
@@ -37,5 +39,7 @@ export class SidebarComponent implements OnInit {
 
   onLogout() {
     console.log('Cerrar sesión clickeado');
+    this.route.navigate(['']);
+
   }
 }

@@ -5,7 +5,7 @@
 @import "primeicons/primeicons.css";
 
 :root {
-    --color-primary: white;
+    --color-primary: #282738;
     --color-secondary: #17202A;
 
   }
@@ -14,9 +14,15 @@
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+    color: white;
+  }
+  h1{
+    font-size: 4rem;
+    margin: 0.5rem;
   }
   p{
-    font-size: 12px;
+    font-size: 18px;
+    color: white;
   }
 span{
     font-family: "Montserrat", sans-serif;
@@ -125,4 +131,14 @@ p-avatar{
 }
 .mt1{
     margin-top: 1rem;
+}
+
+.btnPrimary{
+  background-color: #282738;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
 }

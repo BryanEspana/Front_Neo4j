@@ -1,10 +1,10 @@
-<div class="pageComplete">
-  <img src="../../../../assets/logoComic.png" class="logoComic">
-  <img src="../../../../assets/spiderman.png" class="spidey">
+<div >
+<div class="loginpage"></div>
+  <img src="../../../../assets/gameStore2.png" class="logoComic">
 
-  <img src="../../../../assets/batman.png" class="batman">
-  <p-card class="cardCentrada" *ngIf="!isNotRegistered">
-    <h1>Iniciar sesión</h1>
+  <div class="cardCentrada" *ngIf="!isNotRegistered">
+    <h1 class="mrL-1">Iniciar sesión</h1>
+    <p class="mrL-1">¿No tienes una cuenta? <span (click)="RegisteredClick()">Registrate</span></p>
     <!--User-->
     <p-inputGroup>
       <p-inputGroupAddon>
@@ -19,12 +19,12 @@
         </p-inputGroupAddon>
         <input type="text" pInputText placeholder="Contraseña" [(ngModel)]="PasswordLogin" />
     </p-inputGroup>
-    <p>¿No tienes una cuenta? <span (click)="RegisteredClick()">Registrate</span></p>
-    <p-button label="Ingresar"  [loading]="loading" (onClick)="Login()"></p-button>
+    <p-button label="Ingresar" class="mrL-1"  [loading]="loading" (onClick)="Login()"></p-button>
 
-  </p-card>
+  </div>
 
-
+</div>
+<div>
   <p-card class="cardCentrada" *ngIf="isNotRegistered">
     <h1>Registrarse</h1>
     <!--User-->

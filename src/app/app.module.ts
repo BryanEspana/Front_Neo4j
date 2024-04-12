@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { CardModule } from 'primeng/card';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { InicioComponent } from './pages/home/Inicio/Inicio.component';
 import { FooterComponent } from './pages/home/footer/footer.component';
 import { MenuModule } from 'primeng/menu';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,7 @@ import { MenuModule } from 'primeng/menu';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     CardModule,
     InputGroupModule,

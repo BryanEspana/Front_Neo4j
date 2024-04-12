@@ -1,32 +1,20 @@
+
 .cardCentrada{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: auto;
-    width: min-content;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+
 }
 .pageComplete{
     //imagen de fondo
     background-color: var(--color-primary);
 }
 
-.spidey{
-    position: fixed !important;
-    top: -50px;
-    right: 0;
-}
-.batman{
-    position: fixed !important;
-    bottom: 0;
-    left: 0;
-}
 .logoComic{
-  width: 300px;
-  padding: 1rem;
-  position: fixed !important;
-  top: 0;
+  width: 200px;
+  padding: 2rem;
 }
+
 @media screen and (max-width: 768px){
     .spidey{
         display: none;
@@ -35,4 +23,18 @@
         display: none;
     }
 
+}
+.mrL-1{
+  margin-left: 1rem;
+}
+
+.loginpage{
+  height: 100vh; /* Altura completa de la ventana de visualización */
+  width: 70%; /* Ancho completo */
+  background-image: linear-gradient(to right, var(--color-primary), transparent), url('/assets/dragon.webp');
+  background-position: left; /* Alinea la imagen a la derecha */
+  background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 0;
 }

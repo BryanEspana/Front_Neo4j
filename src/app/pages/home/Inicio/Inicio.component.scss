@@ -1,18 +1,95 @@
-.images{
-    width: 100%;
-    height: 400px;
-    object-fit: cover
-}
-.pageInicio{
-    padding: 2rem  30rem;
+.image-container {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
 
 }
-p-carousel-container{
-    width: 70%;
-    height: 400px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+h4, h3{
+  margin: 0;
+}
+.image-container .cyberpunk {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
 }
 
-.cardDiv{
-  margin: 1rem 13%;
+.image-container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.232)); /* De oscuro a transparente */
+  z-index: 1; /* Asegura que el degradado se sitúe sobre la imagen */
+}
+.textImg{
+  position: absolute;
+  top: 50%;
+  color: white;
+  font-weight: bold;
+  z-index: 2;
+  margin-top: 1rem;
+  margin-left: 6rem;
+}
+h1{
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+p{
+  width: 35%;
+  font-size: 14px;
+}
+
+.PageCards{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+
+}
+
+.Card{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  background-color: var(--color-primary);
+
+}
+.imgCards{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+
+}
+.inicioPage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Enterprise{
+  color: gray;
+}
+.infoBtn{
+  padding: 6px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.priceDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

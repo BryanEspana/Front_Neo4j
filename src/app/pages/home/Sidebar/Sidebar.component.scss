@@ -4,8 +4,14 @@
     justify-content: space-between;
     gap: 3rem;
 }
+/* En tu archivo de estilos del componente que usa p-toolbar */
+::ng-deep p-toolbar {
+  background: transparent !important;
+  border: none !important; /* Utiliza 'none' en lugar de 'transparent' para bordes */
+}
 
-.ptoolbar{
-  background: var(--color-primary);
-  background-color: var(--color-primary);
+::ng-deep .p-toolbar {
+  background-color: transparent !important;
+  border: none !important;
+  color: white;
 }
