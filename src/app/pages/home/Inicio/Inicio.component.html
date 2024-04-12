@@ -8,62 +8,20 @@
         <button class="btnPrimary">Buy for $99.99</button>
       </div>
     </div>
-
-    <div class="PageCards">
-      <div class="Card">
-        <img src="../../../../assets/horizon.jpeg" class="imgCards">
-        <h4>Horizon Forbidden West</h4>
-        <span class="Enterprise">Guerilla Games</span>
-        <div class="displayrow priceDiv">
-          <h3>$49,99</h3>
-          <i class="pi pi-shopping-cart infoBtn"></i>
-        </div>
-      </div>
-      <div class="Card">
-        <img src="../../../../assets/horizon.jpeg" class="imgCards">
-        <h4>Horizon Forbidden West</h4>
-        <span class="Enterprise">Guerilla Games</span>
-        <div class="displayrow priceDiv">
-          <h3>$49,99</h3>
-          <i class="pi pi-shopping-cart infoBtn"></i>
-        </div>
-      </div>
-      <div class="Card">
-        <img src="../../../../assets/horizon.jpeg" class="imgCards">
-        <h4>Horizon Forbidden West</h4>
-        <span class="Enterprise">Guerilla Games</span>
-        <div class="displayrow priceDiv">
-          <h3>$49,99</h3>
-          <i class="pi pi-shopping-cart infoBtn"></i>
-        </div>
-      </div>
-      <div class="Card">
-        <img src="../../../../assets/horizon.jpeg" class="imgCards">
-        <h4>Horizon Forbidden West</h4>
-        <span class="Enterprise">Guerilla Games</span>
-        <div class="displayrow priceDiv">
-          <h3>$49,99</h3>
-          <i class="pi pi-shopping-cart infoBtn"></i>
-        </div>
-      </div>
-      <div class="Card">
-        <img src="../../../../assets/horizon.jpeg" class="imgCards">
-        <h4>Horizon Forbidden West</h4>
-        <span class="Enterprise">Guerilla Games</span>
-        <div class="displayrow priceDiv">
-          <h3>$49,99</h3>
-          <i class="pi pi-shopping-cart infoBtn"></i>
-        </div>
-      </div>
-      <div class="Card">
-        <img src="../../../../assets/horizon.jpeg" class="imgCards">
-        <h4>Horizon Forbidden West</h4>
-        <span class="Enterprise">Guerilla Games</span>
-        <div class="displayrow priceDiv">
-          <h3>$49,99</h3>
-          <i class="pi pi-shopping-cart infoBtn"></i>
-        </div>
-      </div>
-    </div>
-
-  </div>
+<div class="titleCarrousel">
+  <h4>Populares: </h4>
+  <button class="button2">Ver todo</button>
+</div>
+    <p-carousel [value]="cards" [numVisible]="6" [numScroll]="3" circular>
+      <ng-template let-card pTemplate="item">
+          <div class="Card">
+              <img [src]="card.image" class="imgCards" alt="Card image">
+              <h4>{{ card.title }}</h4>
+              <span class="Enterprise">{{ card.enterprise }}</span>
+              <div class="displayrow priceDiv">
+                  <h3>{{ card.price }}</h3>
+                  <i class="pi pi-shopping-cart infoBtn"></i>
+              </div>
+          </div>
+      </ng-template>
+  </p-carousel>

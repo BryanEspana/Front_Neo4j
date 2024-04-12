@@ -6,7 +6,7 @@
 
 :root {
     --color-primary: #282738;
-    --color-secondary: #17202A;
+    --color-secondary: #27313c;
 
   }
   h1, h2, h3, h4, h5, h6, p {
@@ -133,8 +133,20 @@ p-avatar{
     margin-top: 1rem;
 }
 
-.btnPrimary{
-  background-color: #282738;
+button{
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+}
+button:hover{
+  cursor: pointer;
+}
+.button2{
+  background-color: #154371;
   color: white;
   border: none;
   border-radius: 30px;

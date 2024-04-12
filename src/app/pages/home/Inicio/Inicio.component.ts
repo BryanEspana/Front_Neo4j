@@ -11,13 +11,178 @@ export class InicioComponent implements OnInit {
   ngOnInit() {
 
   }
-  images = [
-    '../../../assets/Carrousel/1.jpg',
-    '../../../assets/Carrousel/2.avif',
-    '../../../assets/Carrousel/3.jpg',
-    '../../../assets/Carrousel/4.webp',
-    '../../../assets/Carrousel/5.jpg',
-  ];
+  cards = [
+    {
+        image: '../../../../assets/horizon.jpeg',
+        title: 'Horizon Forbidden West',
+        enterprise: 'Guerilla Games',
+        price: '$49,99'
+    },
+    {
+      image: '../../../../assets/horizon.jpeg',
+      title: 'Horizon Forbidden West',
+      enterprise: 'Guerilla Games',
+      price: '$49,99'
+  },
+     {
+        image: '../../../../assets/horizon.jpeg',
+        title: 'Horizon Forbidden West',
+        enterprise: 'Guerilla Games',
+        price: '$49,99'
+    },
+    {
+      image: '../../../../assets/horizon.jpeg',
+      title: 'Horizon Forbidden West',
+      enterprise: 'Guerilla Games',
+      price: '$49,99'
+  },
+  {
+    image: '../../../../assets/horizon.jpeg',
+    title: 'Horizon Forbidden West',
+    enterprise: 'Guerilla Games',
+    price: '$49,99'
+},
+{
+  image: '../../../../assets/horizon.jpeg',
+  title: 'Horizon Forbidden West',
+  enterprise: 'Guerilla Games',
+  price: '$49,99'
+},
+ {
+    image: '../../../../assets/horizon.jpeg',
+    title: 'Horizon Forbidden West',
+    enterprise: 'Guerilla Games',
+    price: '$49,99'
+},
+{
+  image: '../../../../assets/horizon.jpeg',
+  title: 'Horizon Forbidden West',
+  enterprise: 'Guerilla Games',
+  price: '$49,99'
+},
+{
+  image: '../../../../assets/horizon.jpeg',
+  title: 'Horizon Forbidden West',
+  enterprise: 'Guerilla Games',
+  price: '$49,99'
+},
+{
+image: '../../../../assets/horizon.jpeg',
+title: 'Horizon Forbidden West',
+enterprise: 'Guerilla Games',
+price: '$49,99'
+},
+{
+  image: '../../../../assets/horizon.jpeg',
+  title: 'Horizon Forbidden West',
+  enterprise: 'Guerilla Games',
+  price: '$49,99'
+},
+{
+image: '../../../../assets/horizon.jpeg',
+title: 'Horizon Forbidden West',
+enterprise: 'Guerilla Games',
+price: '$49,99'
+},
+{
+  image: '../../../../assets/horizon.jpeg',
+  title: 'Horizon Forbidden West',
+  enterprise: 'Guerilla Games',
+  price: '$49,99'
+},
+{
+image: '../../../../assets/horizon.jpeg',
+title: 'Horizon Forbidden West',
+enterprise: 'Guerilla Games',
+price: '$49,99'
+},
+{
+  image: '../../../../assets/horizon.jpeg',
+  title: 'Horizon Forbidden West',
+  enterprise: 'Guerilla Games',
+  price: '$49,99'
+},
+{
+image: '../../../../assets/horizon.jpeg',
+title: 'Horizon Forbidden West',
+enterprise: 'Guerilla Games',
+price: '$49,99'
+},
+{
+  image: '../../../../assets/horizon.jpeg',
+  title: 'Horizon Forbidden West',
+  enterprise: 'Guerilla Games',
+  price: '$49,99'
+},
+{
+image: '../../../../assets/horizon.jpeg',
+title: 'Horizon Forbidden West',
+enterprise: 'Guerilla Games',
+price: '$49,99'
+},
+{
+  image: '../../../../assets/horizon.jpeg',
+  title: 'Horizon Forbidden West',
+  enterprise: 'Guerilla Games',
+  price: '$49,99'
+},
+{
+image: '../../../../assets/horizon.jpeg',
+title: 'Horizon Forbidden West',
+enterprise: 'Guerilla Games',
+price: '$49,99'
+},
+{
+  image: '../../../../assets/horizon.jpeg',
+  title: 'Horizon Forbidden West',
+  enterprise: 'Guerilla Games',
+  price: '$49,99'
+},
+{
+image: '../../../../assets/horizon.jpeg',
+title: 'Horizon Forbidden West',
+enterprise: 'Guerilla Games',
+price: '$49,99'
+},
+{
+  image: '../../../../assets/horizon.jpeg',
+  title: 'Horizon Forbidden West',
+  enterprise: 'Guerilla Games',
+  price: '$49,99'
+},
+{
+image: '../../../../assets/horizon.jpeg',
+title: 'Horizon Forbidden West',
+enterprise: 'Guerilla Games',
+price: '$49,99'
+},
+{
+  image: '../../../../assets/horizon.jpeg',
+  title: 'Horizon Forbidden West',
+  enterprise: 'Guerilla Games',
+  price: '$49,99'
+},
+{
+image: '../../../../assets/horizon.jpeg',
+title: 'Horizon Forbidden West',
+enterprise: 'Guerilla Games',
+price: '$49,99'
+},
+{
+  image: '../../../../assets/horizon.jpeg',
+  title: 'Horizon Forbidden West',
+  enterprise: 'Guerilla Games',
+  price: '$49,99'
+},
+{
+image: '../../../../assets/horizon.jpeg',
+title: 'Horizon Forbidden West',
+enterprise: 'Guerilla Games',
+price: '$49,99'
+},
+    // Añade más objetos para cada tarjeta
+];
+
 
 
   getSeverity(status: string) {

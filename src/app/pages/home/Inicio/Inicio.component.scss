@@ -62,7 +62,7 @@ p{
   justify-content: left;
   align-items: left;
   background-color: var(--color-primary);
-
+  width: 219px !important;
 }
 .imgCards{
   width: 100%;
@@ -92,4 +92,25 @@ p{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+p-carousel{
+  margin: 0rem 3rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+
+}
+
+
+.titleCarrousel{
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  width: 100%;
+  padding: 2rem 5rem;
+  font-size: 20px;
+  align-items: center;
+  justify-content: space-between ;
 }
