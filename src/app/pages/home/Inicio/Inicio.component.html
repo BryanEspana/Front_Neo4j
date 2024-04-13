@@ -4,7 +4,7 @@
       <img src="../../../../assets/cyberpunk.jpg" class="cyberpunk">
       <div class="textImg">
         <h1>NIGHT CITY CHANGES <br> EVERY BODY</h1>
-        <p>Cyberpunk is a subgenre of science fiction in a dystopian futuristic setting that tends to focus on a "combination of lowlife and high tech", featuring futuristic technological and scientific achievements, such as artificial intelligence and cyberware, juxtaposed with societal collapse, dystopia or decay.</p>
+        <p class="pe">Cyberpunk is a subgenre of science fiction in a dystopian futuristic setting that tends to focus on a "combination of lowlife and high tech", featuring futuristic technological and scientific achievements, such as artificial intelligence and cyberware, juxtaposed with societal collapse, dystopia or decay.</p>
         <button class="btnPrimary">Buy for $99.99</button>
       </div>
     </div>
@@ -12,16 +12,44 @@
   <h4>Populares: </h4>
   <button class="button2">Ver todo</button>
 </div>
-    <p-carousel [value]="cards" [numVisible]="6" [numScroll]="3" circular>
-      <ng-template let-card pTemplate="item">
-          <div class="Card">
-              <img [src]="card.image" class="imgCards" alt="Card image">
-              <h4>{{ card.title }}</h4>
-              <span class="Enterprise">{{ card.enterprise }}</span>
-              <div class="displayrow priceDiv">
-                  <h3>{{ card.price }}</h3>
-                  <i class="pi pi-shopping-cart infoBtn"></i>
-              </div>
+<p-carousel [value]="cards" [numVisible]="6" [numScroll]="3" circular  class="custom-carousel">
+  <ng-template let-card pTemplate="item">
+      <div class="Card" (click)="GoDetailGame()">
+          <img [src]="card.image" class="imgCards" alt="Card image">
+          <h4>{{ card.title }}</h4>
+          <span class="Enterprise">{{ card.enterprise }}</span>
+          <div class="displayrow priceDiv">
+              <h3>{{ card.price }}</h3>
+              <i class="pi pi-shopping-cart infoBtn"></i>
           </div>
-      </ng-template>
-  </p-carousel>
+      </div>
+  </ng-template>
+</p-carousel>
+
+<div class="titleCarrousel">
+  <h4>Juegos nuevos: </h4>
+  <button class="button2">Ver todo</button>
+</div>
+<div class="displayrow center gap1" >
+  <div class="newGames">
+    <img src="../../../../assets/dragon.webp" class="newGameImg">
+    <div>
+      <h1>Dragon's Dogma 2</h1>
+      <div class="displayrow2">
+        <p class="description">Dragon's Dogma 2​ es un videojuego de rol de acción de 2024 desarrollado y publicado por Capcom. Se trata de la secuela de Dragon's Dogma y fue lanzado para PlayStation 5, Windows y Xbox Series X/S el 22 de marzo de 2024.</p>
+        <button class="btnPrimary">Buy for $69.99</button>
+      </div>
+    </div>
+  </div>
+  <div class="newGames">
+    <img src="../../../../assets/helldrivers.webp" class="newGameImg">
+    <div>
+      <h1>Helldivers 2</h1>
+      <div class="displayrow2">
+        <p class="description">Helldivers 2 es un videojuego de disparos cooperativo en tercera persona desarrollado por Arrowhead Game Studios y publicado por Sony Interactive Entertainment en febrero de 2024. El juego es la secuela directa de Helldivers, un top-down shooter de 2015.</p>
+        <button class="btnPrimary">Buy for $29.99</button>
+      </div>
+    </div>
+  </div>
+ 
+</div>

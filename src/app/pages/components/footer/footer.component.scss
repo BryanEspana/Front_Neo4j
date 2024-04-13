@@ -1,0 +1,14 @@
+.flexmenu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+p-toolbar{
+  background: var(--color-primary);
+  background-color: var(--color-primary);
+  position: relative;
+  bottom: 0
+}
+

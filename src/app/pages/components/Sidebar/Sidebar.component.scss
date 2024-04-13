@@ -15,3 +15,11 @@
   border: none !important;
   color: white;
 }
+
+.backgroundtoolbar{
+  position: fixed;
+  border: none;
+}
+p-toolbar{
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.521)) !important;
+}

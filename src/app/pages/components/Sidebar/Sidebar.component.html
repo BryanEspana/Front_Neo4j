@@ -1,19 +1,16 @@
-<p-toolbar [ngStyle]="{
-  'position': 'fixed',
-  'background-color': 'transparent', 'border': 'none'}">
+<p-toolbar ngClass="backgroundtoolbar">
   <ng-template pTemplate="start">
       <img src="../../../../assets/gameStore.png" width="100" />
   </ng-template>
   <ng-template pTemplate="center">
       <div class="flexmenu">
-          <span class="font-bold text-bluegray-50">Inicio</span>
-          <span class="font-bold text-bluegray-50">Comics</span>
-          <span class="font-bold text-bluegray-50">Tienda</span>
-          <span class="font-bold text-bluegray-50">Contacto</span>
+          <span class="font-bold text-bluegray-50" (click)="GoInicio()">Inicio</span>
+          <span class="font-bold text-bluegray-50" (click)="GoInventario()">Inventario</span>
+          <span class="font-bold text-bluegray-50">Perfil</span>
       </div>
   </ng-template>
   <ng-template pTemplate="end">
-    <div class="center displayrow" style="cursor: pointer;" (click)="menu.toggle($event)">
+    <div class="center displayrow" style="cursor: pointer; margin-right: 1rem;" (click)="menu.toggle($event)">
       <p-avatar label="B" shape="circle"></p-avatar>
       <span class="font-bold text-bluegray-50">{{username}}</span>
     </div>

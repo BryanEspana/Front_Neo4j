@@ -41,7 +41,7 @@ h1{
   margin: 0;
 }
 
-p{
+.pe{
   width: 35%;
   font-size: 14px;
 }
@@ -113,4 +113,9 @@ p-carousel{
   font-size: 20px;
   align-items: center;
   justify-content: space-between ;
+}
+
+.description{
+  width: 70%;
+  font-size: 12px;
 }

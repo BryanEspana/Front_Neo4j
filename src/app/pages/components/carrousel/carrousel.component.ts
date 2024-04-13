@@ -1,20 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-Inicio',
-  templateUrl: './Inicio.component.html',
-  styleUrls: ['./Inicio.component.scss']
+  selector: 'app-carrousel',
+  templateUrl: './carrousel.component.html',
+  styleUrls: ['./carrousel.component.scss']
 })
-export class InicioComponent implements OnInit {
-  constructor(
-    private route: Router,
-
-  ) { }
-
-  ngOnInit() {
-
-  }
+export class CarrouselComponent implements OnInit {
   cards = [
     {
         image: '../../../../assets/horizon.jpeg',
@@ -89,23 +80,22 @@ enterprise: 'Guerilla Games',
 price: '$49,99'
 },
 ];
+getSeverity(status: string) {
+  switch (status) {
+    case 'In Stock':
+      return 'success';
+    case 'Low Stock':
+      return 'warning';
+    case 'Out of Stock':
+      return 'danger';
+    default:
+      return 'secondary';
+  }
+}
 
+  constructor() { }
 
-
-  getSeverity(status: string) {
-    switch (status) {
-      case 'In Stock':
-        return 'success';
-      case 'Low Stock':
-        return 'warning';
-      case 'Out of Stock':
-        return 'danger';
-      default:
-        return 'secondary';
-    }
+  ngOnInit() {
   }
 
-  GoDetailGame(){
-    this.route.navigate(['home/detail-game']);
-  }
 }

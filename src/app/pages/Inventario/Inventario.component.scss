@@ -1,0 +1,81 @@
+.InventarioPage{
+    margin-top: 10rem;
+    margin: 3rem;
+    background-color: transparent !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    justify-content: space-between;
+}
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: none !important;
+    background-color: transparent !important;
+    background: transparent !important;
+    border-radius: 8px;
+  }
+  
+  .product-image {
+    width: 100px; /* Ajusta esto según el tamaño deseado */
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .text-content {
+    max-width: 60%; /* Ajusta esto según el espacio que quieras dar al texto */
+  }
+  
+  .price-tag {
+    font-size: 1.5rem; /* Ajusta el tamaño de la fuente como prefieras */
+    white-space: nowrap;
+  }
+  
+p-dataView{
+    width: 95%;
+}  
+
+
+:host ::ng-deep .p-dataview .p-dataview-content {
+    background: transparent !important;
+    color: white !important;
+}
+
+::ng-deep .p-dataview .p-dataview-content {
+    background: transparent !important;
+    color: white !important;
+}
+
+::ng-deep .p-paginator {
+    background: transparent !important;
+    color: white !important;
+    border: solid #f3f4f6;
+    border-width: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+}
+
+.p-button-rounded{
+    margin: 0rem 0.5rem;
+    width: 50px;
+    height: 50px;
+}
+.btnadd{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0rem 7rem;
+    margin-top: 5rem;
+}

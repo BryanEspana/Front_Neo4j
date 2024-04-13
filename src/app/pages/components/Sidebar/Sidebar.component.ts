@@ -42,4 +42,11 @@ export class SidebarComponent implements OnInit {
     this.route.navigate(['']);
 
   }
+  GoInicio(){
+    this.route.navigate(['home']);
+  }   
+  GoInventario(){
+    this.route.navigate(['home/inventario']);
+  }
+
 }

@@ -24,34 +24,34 @@
   </div>
 
 </div>
-<div>
-  <p-card class="cardCentrada" *ngIf="isNotRegistered">
-    <h1>Registrarse</h1>
-    <!--User-->
-    <p-inputGroup>
-      <p-inputGroupAddon>
-          <i class="pi pi-user"></i>
-      </p-inputGroupAddon>
-      <input pInputText placeholder="Usuario" [(ngModel)]="UserNameRegister"/>
-    </p-inputGroup>
-    <!--Password-->
-    <p-inputGroup>
+<div >  
+    <div class="cardCentrada" *ngIf="isNotRegistered">
+      <h1 class="mrL-1">Registrarse</h1>
+      <p>¿Si tienes una cuenta? <span (click)="RegisteredClick()">Inicia sesión</span></p>
+      <!--User-->
+      <p-inputGroup>
+        <p-inputGroupAddon>
+            <i class="pi pi-user"></i>
+        </p-inputGroupAddon>
+        <input pInputText placeholder="Usuario" [(ngModel)]="UserNameRegister" />
+      </p-inputGroup>
+      <!--Password-->
+      <p-inputGroup>
         <p-inputGroupAddon>
           <i class="pi pi-lock"></i>
         </p-inputGroupAddon>
         <input type="text" pInputText placeholder="Contraseña"  [(ngModel)]="PasswordRegister" />
-    </p-inputGroup>
-        <!--Password-->
-        <p-inputGroup>
-          <p-inputGroupAddon>
-            <i class="pi pi-lock"></i>
-          </p-inputGroupAddon>
-          <input type="text" pInputText placeholder="Confirmar contraseña"   [(ngModel)]="PasswordConfirmRegister"/>
       </p-inputGroup>
-    <p>¿Si tienes una cuenta? <span (click)="RegisteredClick()">Inicia sesión</span></p>
-
-    <p-button label="Crear cuenta" severity="danger"  [loading]="loading" (onClick)="load()"></p-button>
-
-  </p-card>
-
-</div>
+        <!--Password-->
+      <p-inputGroup>
+        <p-inputGroupAddon>
+          <i class="pi pi-lock"></i>
+        </p-inputGroupAddon>
+        <input type="text" pInputText placeholder="Confirmar contraseña"   [(ngModel)]="PasswordConfirmRegister"/>
+      </p-inputGroup>
+      <p-button label="Ingresar" class="mrL-1"  [loading]="loading" (onClick)="Login()"></p-button>
+  
+    </div>
+  
+  </div>
+  <div style="margin-bottom: 5rem;"></div>

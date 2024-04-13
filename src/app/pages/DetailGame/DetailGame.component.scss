@@ -1,0 +1,51 @@
+.ImgDetail{
+    height: 80vh; /* Altura completa de la ventana de visualización */
+    width: 100%;
+    background-image: linear-gradient(to top, var(--color-primary), transparent), url('/assets/horizonFondo.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    position: absolute;
+
+}
+.InfoDetail{
+    padding: 1rem;
+    padding-top: 20%;
+    padding-left: 5%;
+}
+.textDetail{
+    margin: 2rem;
+    margin-bottom: 0;
+    z-index: 10;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+.textDescription{
+    margin-top: 2rem;
+    z-index: 10;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    margin: 1rem 6rem;
+    width: 33%;
+}
+
+.imgGame{
+    height: max-content;
+    width: 300px;
+    border-radius: 5%;
+  }
+  .btnShop{
+    margin: 1rem;
+    margin-left: 0;
+  }
+
+  p{
+    margin: 0.5rem 0rem;
+  }
+  .todoDetail{
+    display: flex;
+    flex-direction: column;
+  }

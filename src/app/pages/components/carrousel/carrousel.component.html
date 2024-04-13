@@ -1,0 +1,13 @@
+<p-carousel [value]="cards" [numVisible]="6" [numScroll]="3" circular  class="custom-carousel">
+  <ng-template let-card pTemplate="item">
+      <div class="Card">
+          <img [src]="card.image" class="imgCards" alt="Card image">
+          <h4>{{ card.title }}</h4>
+          <span class="Enterprise">{{ card.enterprise }}</span>
+          <div class="displayrow priceDiv">
+              <h3>{{ card.price }}</h3>
+              <i class="pi pi-shopping-cart infoBtn"></i>
+          </div>
+      </div>
+  </ng-template>
+</p-carousel>

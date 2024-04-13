@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/auth/Login/Login.component';
 import { HomeComponent } from './pages/home/Home/Home.component';
 import { InicioComponent } from './pages/home/Inicio/Inicio.component';
+import { DetailGameComponent } from './pages/DetailGame/DetailGame.component';
+import { InventarioComponent } from './pages/Inventario/Inventario.component';
 
 const routes: Routes = [
   { path:'login', component: LoginComponent},
@@ -10,10 +12,13 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     children: [
-      { path: 'Inicio', component: InicioComponent },
-      { path: '', redirectTo: 'Inicio', pathMatch: 'full' } // Redirecciona a dashboard por defecto
+      { path: 'inicio', component: InicioComponent },
+      { path: 'detail-game', component: DetailGameComponent},
+      { path: 'inventario', component: InventarioComponent},
+      { path: '', redirectTo: 'inicio', pathMatch: 'full' } 
     ]
-  },  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  }, 
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' } 
 
 ];

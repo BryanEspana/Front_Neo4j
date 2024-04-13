@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SweetToastService } from 'src/app/services/sweetToast.service';
+import { SweetToastService } from 'src/app/services/Alertas/sweetToast.service';
 import Swal from 'sweetalert2';
 
 
@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit {
   Login() {
     this.loading = true;
   
-    //routing by home
     if(this.UserNameLogin == 'admin' && this.PasswordLogin == 'admin'){
       setTimeout(() => {
           this.loading = false
