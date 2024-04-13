@@ -22,6 +22,7 @@ import { CarrouselComponent } from './pages/components/carrousel/carrousel.compo
 import { DetailGameComponent } from './pages/DetailGame/DetailGame.component';
 import { DataViewModule } from 'primeng/dataview';
 import { InventarioComponent } from './pages/Inventario/Inventario.component';
+import { SpeedDialModule } from 'primeng/speeddial';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { InventarioComponent } from './pages/Inventario/Inventario.component';
     AvatarGroupModule,
     CarouselModule,
     MenuModule,
-    DataViewModule
+    DataViewModule,
+    SpeedDialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
