@@ -26,8 +26,12 @@ import { SpeedDialModule } from 'primeng/speeddial';
 import { TooltipModule } from 'primeng/tooltip';
 import { DialogModule } from 'primeng/dialog';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { DropdownModule } from 'primeng/dropdown';
+import { CalendarModule } from 'primeng/calendar';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { LoadingComponent } from './pages/components/loading/loading.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     CarrouselComponent,
     DetailGameComponent,
-    InventarioComponent
+    InventarioComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,12 @@ import { HttpClientModule } from '@angular/common/http';
     SpeedDialModule,
     TooltipModule,
     DialogModule,
-    HttpClientModule
+    HttpClientModule,
+    IconFieldModule,
+    InputIconModule,
+    DropdownModule,
+    CalendarModule,
+    InputSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

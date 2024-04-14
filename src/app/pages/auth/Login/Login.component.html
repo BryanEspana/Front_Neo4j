@@ -7,17 +7,13 @@
     <p class="mrL-1">¿No tienes una cuenta? <span (click)="RegisteredClick()">Registrate</span></p>
     <!--User-->
     <p-inputGroup>
-      <p-inputGroupAddon>
-          <i class="pi pi-user"></i>
-      </p-inputGroupAddon>
+      <button type="button" class="btnInput" pButton icon="pi pi-user" ></button>
       <input pInputText placeholder="Usuario" [(ngModel)]="UserNameLogin" />
     </p-inputGroup>
     <!--Password-->
     <p-inputGroup>
-        <p-inputGroupAddon>
-          <i class="pi pi-lock"></i>
-        </p-inputGroupAddon>
-        <input type="text" pInputText placeholder="Contraseña" [(ngModel)]="PasswordLogin" />
+      <button type="button" class="btnInput" pButton icon="pi pi-lock" ></button>
+        <input type="password" pInputText placeholder="Contraseña" [(ngModel)]="PasswordLogin" />
     </p-inputGroup>
     <p-button label="Ingresar" class="mrL-1"  [loading]="loading" (onClick)="Login()"></p-button>
 
@@ -25,33 +21,63 @@
 
 </div>
 <div >  
-    <div class="cardCentrada" *ngIf="isNotRegistered">
+    <div class="cardCentrada2" *ngIf="isNotRegistered">
       <h1 class="mrL-1">Registrarse</h1>
       <p>¿Si tienes una cuenta? <span (click)="RegisteredClick()">Inicia sesión</span></p>
-      <!--User-->
-      <p-inputGroup>
-        <p-inputGroupAddon>
-            <i class="pi pi-user"></i>
-        </p-inputGroupAddon>
-        <input pInputText placeholder="Usuario" [(ngModel)]="UserNameRegister" />
-      </p-inputGroup>
-      <!--Password-->
-      <p-inputGroup>
-        <p-inputGroupAddon>
-          <i class="pi pi-lock"></i>
-        </p-inputGroupAddon>
-        <input type="text" pInputText placeholder="Contraseña"  [(ngModel)]="PasswordRegister" />
-      </p-inputGroup>
+      <div class="formGrup">
+        <!--User-->
+        <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-user" ></button>
+          <input pInputText placeholder="Nombre" [(ngModel)]="NameRegister" />
+        </p-inputGroup>
+        <!--Lastname-->
+        <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-user" ></button>
+          <input pInputText placeholder="Apellido" [(ngModel)]="LastNameRegister" />
+        </p-inputGroup>
+        <!--UserNAame-->
+        <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-user" ></button>
+          <input pInputText placeholder="Nombre de usuario" [(ngModel)]="UserNameRegister" />
+        </p-inputGroup>
+        <!--Sexo-->
+        <div class="mrgL1">
+          <p-dropdown [options]="sexo" [(ngModel)]="selectedSexoRegister" optionLabel="name" optionValue="id" [showClear]="true" placeholder="Selecciona un sexo"></p-dropdown>
+        </div>
+        
+        <!--Edad-->
+        <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-user" ></button>
+          <input pInputText placeholder="Edad" [(ngModel)]="ageRegister" />
+        </p-inputGroup>
         <!--Password-->
-      <p-inputGroup>
-        <p-inputGroupAddon>
-          <i class="pi pi-lock"></i>
-        </p-inputGroupAddon>
-        <input type="text" pInputText placeholder="Confirmar contraseña"   [(ngModel)]="PasswordConfirmRegister"/>
-      </p-inputGroup>
-      <p-button label="Ingresar" class="mrL-1"  [loading]="loading" (onClick)="Login()"></p-button>
-  
+        <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-lock" ></button>
+          <input type="password" pInputText placeholder="Contraseña"  [(ngModel)]="PasswordRegister" />
+        </p-inputGroup>
+        <!--Password-->
+        <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-lock" ></button>
+          <input type="password" pInputText placeholder="Confirmar contraseña"   [(ngModel)]="PasswordConfirmRegister"/>
+        </p-inputGroup>
+
+        <!--switch ADMIN-->
+        <div class="mrgL1 margnT1 displayrow">
+          <label for="switch" class="label">Administrador</label>
+          <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+        </div>
+        <p-inputGroup *ngIf="checked === true">
+          <button type="button" class="btnInput" pButton icon="pi pi-lock" ></button>
+          <input pInputText placeholder="Contraseña" [(ngModel)]="AdminFormPassword" />
+        </p-inputGroup>
+
+        <p-button label="Ingresar" class="mrL-1"  [loading]="loading" (onClick)="Register()"></p-button>
+        
+
+      </div>
+        
+      </div>
+      
     </div>
-  
-  </div>
-  <div style="margin-bottom: 5rem;"></div>
+    <div style="margin-bottom: 5rem;"></div>
+    

@@ -5,16 +5,16 @@
   <ng-template pTemplate="center">
       <div class="flexmenu">
           <span class="font-bold text-bluegray-50" (click)="GoInicio()">Inicio</span>
-          <span class="font-bold text-bluegray-50" (click)="GoInventario()">Inventario</span>
+          <span class="font-bold text-bluegray-50" (click)="GoInventario()" *ngIf="rolDefault === 'ADMIN'">Inventario</span>
+          <span class="font-bold text-bluegray-50" (click)="GoCatalogo()"  *ngIf="rolDefault !== 'ADMIN'">Catalogo</span>
           <span class="font-bold text-bluegray-50">Perfil</span>
       </div>
   </ng-template>
   <ng-template pTemplate="end">
     <div class="center displayrow" style="cursor: pointer; margin-right: 1rem;" (click)="menu.toggle($event)">
-      <p-avatar label="B" shape="circle"></p-avatar>
+      <p-avatar [style]="{  color: '#000000' }" label="{{InitialUsername}}" shape="circle"></p-avatar>
       <span class="font-bold text-bluegray-50">{{username}}</span>
     </div>
     <p-menu #menu [popup]="true" [model]="items"></p-menu>
   </ng-template>
-
 </p-toolbar>

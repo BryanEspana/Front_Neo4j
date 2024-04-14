@@ -6,6 +6,13 @@
   height: 85vh;
   justify-content: center;
 }
+.cardCentrada2{
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  justify-content: center;
+}
 .pageComplete{
     //imagen de fondo
     background-color: var(--color-primary);
@@ -38,4 +45,19 @@
   background-repeat: no-repeat;
   position: absolute;
   right: 0;
+}
+
+
+p-inputGroup{
+  display: flex;
+  flex-direction: row;
+  width: min-content;
+}
+.label{
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  margin-right: 10px;
 }

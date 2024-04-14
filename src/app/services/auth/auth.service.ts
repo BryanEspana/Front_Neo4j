@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { LOGIN_URL } from 'src/app/config/backeEndRoutes';
+import { LOGIN_URL, REGISTER_URL } from 'src/app/config/backeEndRoutes';
 import { API_URL } from 'src/app/config/config';
 
 export interface AuthRequest {
@@ -28,5 +28,17 @@ public login(username: string, password: string){
     };
     return this.http.post(url, body);
   
+  }
+
+  public register(data: any){
+    const url = `${API_URL}${REGISTER_URL}`;
+    return this.http.post(url, data);
+  }
+  public getUser(): any {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
+  public logout(): void {
+    localStorage.clear();  // Esto eliminará todos los datos del localStorage
   }
 }

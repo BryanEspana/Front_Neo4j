@@ -25,6 +25,11 @@
     font-size: 18px;
     color: white;
   }
+  label{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    color: white;
+  }
 span{
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
@@ -59,6 +64,9 @@ p-toolbar{
 }
 p-avatar{
     margin-right: 0.5rem;
+}
+.btnInput{
+  border-radius: 0 !important;
 }
 .pageComplete{
     display: flex;
@@ -134,7 +142,7 @@ p-avatar{
     margin-top: 1rem;
 }
 
-button{
+.Globalbutton{
   background-color: var(--color-secondary);
   color: white;
   border: none;
@@ -321,4 +329,11 @@ p-carousel{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 50%;
 
+  }
+
+  .mrgL1{
+    margin-left: 1rem;
+  }
+  .mrgnT1{
+    margin-top: 1rem;
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-Sidebar',
@@ -8,11 +9,14 @@ import { Router } from '@angular/router';
 })
 
 export class SidebarComponent implements OnInit {
-  username: string = 'Bryan España';
+  username: string | null = null;
+  InitialUsername: string | null = null;
+  rolDefault: string | null = null;
   items: any[] = [];
 
   constructor(
     private route: Router,
+    private authService: AuthService
 
   ) {
     this.items = [
@@ -31,6 +35,11 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit() {
+    const user = this.authService.getUser();
+    this.username = user ? user.username : 'No user';
+    this.InitialUsername = this.username ? this.username.charAt(0).toUpperCase() : 'N';
+    this.rolDefault = user? user.type : 'No user';
+    
   }
 
   onProfile() {
@@ -39,6 +48,7 @@ export class SidebarComponent implements OnInit {
 
   onLogout() {
     console.log('Cerrar sesión clickeado');
+    this.authService.logout();
     this.route.navigate(['']);
 
   }
@@ -47,6 +57,9 @@ export class SidebarComponent implements OnInit {
   }   
   GoInventario(){
     this.route.navigate(['home/inventario']);
+  }
+  GoCatalogo(){
+    this.route.navigate(['home/catalogo']);
   }
 
 }
