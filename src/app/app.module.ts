@@ -23,6 +23,10 @@ import { DetailGameComponent } from './pages/DetailGame/DetailGame.component';
 import { DataViewModule } from 'primeng/dataview';
 import { InventarioComponent } from './pages/Inventario/Inventario.component';
 import { SpeedDialModule } from 'primeng/speeddial';
+import { TooltipModule } from 'primeng/tooltip';
+import { DialogModule } from 'primeng/dialog';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +55,10 @@ import { SpeedDialModule } from 'primeng/speeddial';
     CarouselModule,
     MenuModule,
     DataViewModule,
-    SpeedDialModule
+    SpeedDialModule,
+    TooltipModule,
+    DialogModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
