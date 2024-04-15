@@ -32,6 +32,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { LoadingComponent } from './pages/components/loading/loading.component';
+import { SupplierComponent } from './pages/supplier/supplier.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +46,8 @@ import { LoadingComponent } from './pages/components/loading/loading.component';
     CarrouselComponent,
     DetailGameComponent,
     InventarioComponent,
-    LoadingComponent
+    LoadingComponent,
+    SupplierComponent
   ],
   imports: [
     BrowserModule,

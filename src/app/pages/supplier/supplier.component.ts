@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { GamesService } from 'src/app/services/games/games.service';
-
-export interface Games{
-
-}
 
 @Component({
-  selector: 'app-Inventario',
-  templateUrl: './Inventario.component.html',
-  styleUrls: ['./Inventario.component.scss']
+  selector: 'app-supplier',
+  templateUrl: './supplier.component.html',
+  styleUrls: ['./supplier.component.scss']
 })
-export class InventarioComponent implements OnInit {
-  
+export class SupplierComponent implements OnInit {
+  Stores: any[] = [
+    {
+      id: '1',
+      name: 'Tienda 1',
+      address: 'Calle 1 # 1-1',
+      phone: '1234567890',
+     
+    }
+  ];
+
   games = [
     {
       id: 1,
@@ -65,32 +68,10 @@ export class InventarioComponent implements OnInit {
     },
   ];
 
-  constructor(
-    private gameService: GamesService,
-    private route: Router
-  ) { }
+  selectedStore: string = '';
+  constructor() { }
 
   ngOnInit() {
-
   }
 
-  getSeverity (games: Games) {
-    switch (games) {
-        case 'INSTOCK':
-            return 'success';
-
-        case 'LOWSTOCK':
-            return 'warning';
-
-        case 'OUTOFSTOCK':
-            return 'danger';
-
-        default:
-            return null;
-    }
-};
-
-GoSupplierPage(){
-  this.route.navigate(['home/supplier']);
-}
 }

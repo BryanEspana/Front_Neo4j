@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/Home/Home.component';
 import { InicioComponent } from './pages/home/Inicio/Inicio.component';
 import { DetailGameComponent } from './pages/DetailGame/DetailGame.component';
 import { InventarioComponent } from './pages/Inventario/Inventario.component';
+import { SupplierComponent } from './pages/supplier/supplier.component';
 
 const routes: Routes = [
   { path:'login', component: LoginComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
       { path: 'inicio', component: InicioComponent },
       { path: 'detail-game', component: DetailGameComponent},
       { path: 'inventario', component: InventarioComponent},
+      { path:  'supplier', component: SupplierComponent},
       { path: '', redirectTo: 'inicio', pathMatch: 'full' } 
     ]
   }, 

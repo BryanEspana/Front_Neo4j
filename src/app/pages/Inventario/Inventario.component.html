@@ -1,6 +1,6 @@
 <div class="InventarioPage">
   <div class="btnadd">
-    <p-button label="Agregar" icon="pi pi-plus" iconPos="right"></p-button>
+    <p-button label="Solicitar producto" icon="pi pi-plus" iconPos="right" (onClick)="GoSupplierPage()"></p-button>
   </div>
   <p-dataView #dv [value]="games" [rows]="5" [paginator]="true">
     <ng-template let-games pTemplate="list"  class="p-dataview-content">
