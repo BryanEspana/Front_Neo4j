@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/auth/Login/Login.component';
 import { HomeComponent } from './pages/home/Home/Home.component';
 import { InicioComponent } from './pages/home/Inicio/Inicio.component';
-import { DetailGameComponent } from './pages/DetailGame/DetailGame.component';
-import { InventarioComponent } from './pages/Inventario/Inventario.component';
-import { SupplierComponent } from './pages/supplier/supplier.component';
+import { DetailGameComponent } from './pages/InventarioFolder/DetailGame/DetailGame.component';
+import { InventarioComponent } from './pages/InventarioFolder/Inventario/Inventario.component';
+import { SupplierComponent } from './pages/InventarioFolder/supplier/supplier.component';
 import { ExplorarComponent } from './pages/explorar/explorar.component';
 import { AddGamesToStoreComponent } from './pages/AddGamesToStore/AddGamesToStore.component';
+import { CrearTiendaComponent } from './pages/InventarioFolder/CrearTienda/CrearTienda.component';
 
 const routes: Routes = [
   { path:'login', component: LoginComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'supplier', component: SupplierComponent},
       { path: 'explorar', component: ExplorarComponent },
       { path: 'add-games/:storeId', component: AddGamesToStoreComponent},
+      {path:'create-store', component: CrearTiendaComponent},
       { path: '', redirectTo: 'inicio', pathMatch: 'full' }
     ]
   },

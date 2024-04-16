@@ -5,7 +5,7 @@
       <p-dropdown [options]="Stores" [(ngModel)]="selectedStore" optionLabel="label" [showClear]="true" placeholder="Selecciona una tienda"></p-dropdown>
     </div>
     <p-button label="Buscar" (onClick)="fetchGames()"></p-button>
-    <p-button label="Crear Tienda" (onClick)="fetchGames()"></p-button>
+    <p-button (click)="showDialog()" icon="pi pi-external-link" label="Crear tienda"></p-button>
   </div>
     <app-loading *ngIf="isLoading"></app-loading>
     <div class="left" *ngIf="games.length > 0">
@@ -45,5 +45,28 @@
   <!-- Mostrar mensaje si no se ha buscado aún -->
   <h1 class="message" *ngIf="games.length === 0 && !hasSearched">Debes buscar por tienda</h1>
   
+  <p-dialog header="Crear tienda" [(visible)]="visible" [modal]="true" [style]="{ width: '25vw' }" [draggable]="false" [resizable]="false">
+    <div class="formGrup">
+      <!--User-->
+      <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-user" ></button>
+          <input pInputText placeholder="Nombre" [(ngModel)]="NameStore" />
+      </p-inputGroup>
+      <!--Lastname-->
+      <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-user" ></button>
+          <input pInputText placeholder="Dirección" [(ngModel)]="DirectionStore" />
+      </p-inputGroup>
+      <!--switch ADMIN-->
+      <div class="mrgL1 margnT1 displayrow">
+        <label for="switch" class="label">Online</label>
+        <p-inputSwitch [(ngModel)]="HasOnline"></p-inputSwitch>
+      </div>
+
+      <p-button label="Ingresar" class="mrL-1 mt1"  [loading]="loading" (onClick)="RegisterStore()"></p-button>
+      
+
+    </div>
+</p-dialog>
 
 </div>

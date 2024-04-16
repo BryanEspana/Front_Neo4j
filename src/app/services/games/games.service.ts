@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
-import { GET_ALL_GAMES, GET_GAMES_BY_STORE } from 'src/app/config/backeEndRoutes';
+import { CREATE_STORE, GET_ALL_GAMES, GET_GAMES_BY_STORE } from 'src/app/config/backeEndRoutes';
 import { API_URL } from 'src/app/config/config';
 import { Games } from 'src/app/interfaces/Games';
 
@@ -48,6 +48,12 @@ addGamesByStoreId(storeId: number, games: any[]): Observable<any> {
 
   // Enviar payload como segundo argumento en la solicitud POST
   return this.http.post(baseURL, games, { params });
+}
+
+
+createNewStore(storeData: { nombre: string, direccion: string, hasOnline: boolean }): Observable<any> {
+  const baseURL = `${API_URL}${CREATE_STORE}`
+  return this.http.post(baseURL, storeData);
 }
 
 }

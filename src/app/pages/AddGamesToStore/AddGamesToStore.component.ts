@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { GamesService } from 'src/app/services/games/games.service';
-import { Games } from '../Inventario/Inventario.component';
+import { Games } from '../InventarioFolder/Inventario/Inventario.component';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 

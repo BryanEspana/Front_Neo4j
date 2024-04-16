@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { GamesService } from 'src/app/services/games/games.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Games } from '../Inventario/Inventario.component';
+import { Games } from '../InventarioFolder/Inventario/Inventario.component';
 
 
 

@@ -17,7 +17,12 @@ export class SupplierComponent implements OnInit {
   hasSearched: boolean = false; 
   isLoading: boolean = false;
   games: Games[] = [];
-
+  visible: boolean = false;
+  //NGMODELS
+  loading: boolean = false;
+  NameStore: string = "";
+  DirectionStore: string = "";
+  HasOnline: boolean = false;
   constructor(
     private  gamesService: GamesService,
     private route: Router,
@@ -75,6 +80,48 @@ export class SupplierComponent implements OnInit {
     });
   }
   }
-
+  GoToAddStore(){
+    this.route.navigate(['home/create-store']);  
+  }
+  showDialog() {
+    this.visible = true;
+}
+RegisterStore(){
+  this.loading = true; // Inicia la carga
+    const storeData = {
+      nombre: this.NameStore,
+      direccion: this.DirectionStore,
+      hasOnline: this.HasOnline
+    };
+    
+    this.gamesService.createNewStore(storeData).subscribe({
+      next: (response) => {
+        console.log('Tienda creada con éxito:', response);
+        Swal.fire({
+          title: 'Éxito',
+          text: 'Tienda creada con éxito',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        
+        });
+        this.closeDialog();
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error al crear la tienda:', error);
+        Swal.fire({
+          title: 'Error',
+          text: 'Error al crear la tienda',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        });
+        this.closeDialog();
+        this.loading = false;
+      }
+    });
+}
+closeDialog() {
+  this.visible = false;
+}
 
 }

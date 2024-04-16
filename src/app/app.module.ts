@@ -19,9 +19,9 @@ import { InicioComponent } from './pages/home/Inicio/Inicio.component';
 import { FooterComponent } from './pages/components/footer/footer.component';
 import { MenuModule } from 'primeng/menu';
 import { CarrouselComponent } from './pages/components/carrousel/carrousel.component';
-import { DetailGameComponent } from './pages/DetailGame/DetailGame.component';
+import { DetailGameComponent } from './pages/InventarioFolder/DetailGame/DetailGame.component';
 import { DataViewModule } from 'primeng/dataview';
-import { InventarioComponent } from './pages/Inventario/Inventario.component';
+import { InventarioComponent } from './pages/InventarioFolder/Inventario/Inventario.component';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { TooltipModule } from 'primeng/tooltip';
 import { DialogModule } from 'primeng/dialog';
@@ -32,11 +32,12 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { LoadingComponent } from './pages/components/loading/loading.component';
-import { SupplierComponent } from './pages/supplier/supplier.component';
+import { SupplierComponent } from './pages/InventarioFolder/supplier/supplier.component';
 import { ExplorarComponent } from './pages/explorar/explorar.component';
 import { PickListModule } from 'primeng/picklist';
 import { AddGamesToStoreComponent } from './pages/AddGamesToStore/AddGamesToStore.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CrearTiendaComponent } from './pages/InventarioFolder/CrearTienda/CrearTienda.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     LoadingComponent,
     SupplierComponent,
     ExplorarComponent,
-    AddGamesToStoreComponent
+    AddGamesToStoreComponent,
+    CrearTiendaComponent
   ],
   imports: [
     BrowserModule,
