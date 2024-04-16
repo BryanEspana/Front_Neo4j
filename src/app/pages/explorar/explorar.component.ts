@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { GamesService } from 'src/app/services/games/games.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 export interface Games {
   id: number;
@@ -27,68 +28,59 @@ export interface publicacionInterface{
 export class ExplorarComponent implements OnInit {
 
   games: Games[] = [];
-  date: string = "";
-  page: number = 1;
+  currentPage: number = 1;
+  totalGames: number = 10; 
   pageSize: number = 20;
+  private subscription: Subscription = new Subscription();
 
   constructor(
-    private gameService: GamesService,
-    private route: Router,
-    private changeDetector: ChangeDetectorRef
+    private gamesService: GamesService,
+    
+   
   ) { }
 
   ngOnInit() {
-    this.getAllGamesByPage()
+    this.loadGames();
 
   }
+  loadGames() {
+    console.log('Cargando juegos', this.currentPage);
+    this.subscription.unsubscribe();  // Desuscribe la suscripción anterior
+    this.subscription = this.gamesService.getAllGames(this.currentPage, this.pageSize).subscribe(
+      data => {
+        this.games = data;
+      },
+      error => {
+        console.error('Error al cargar los juegos:', error);
+      }
+    );
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();  // Limpia cuando el componente se destruye
+  }
 
-
-GoSupplierPage(){
-  this.route.navigate(['home/supplier']);
-}
-
-getAllGamesByPage() {
-  console.log(`Fetching page ${this.page} with size ${this.pageSize}`);
-  this.gameService.getAllGamesByPage(this.page, this.pageSize).subscribe({
-    next: (data) => {
-      this.games = data.map((game: { publicacion: { year: number; month: number; day: number; }; }) => ({
-        ...game,
-        formattedDate: this.formatDate(game.publicacion)
-      }));
-      console.log("Games: ", this.games);
-    },
-    error: (err) => {
-      console.error('Error fetching games:', err);
+  nextPage() {
+    this.currentPage++;
+    this.loadGames();
+    if (this.currentPage < (this.totalGames / this.pageSize)) {
+      this.currentPage++;
+      this.loadGames();
     }
-  });
-}
-
-onPageChange(newPage: any) {
-  const pageAsNumber = Number(newPage);
-  if (!isNaN(pageAsNumber) && pageAsNumber >= 1) {
-    this.page = pageAsNumber;
-    this.getAllGamesByPage();
-  } else {
-    console.error('Invalid page number:', newPage);
   }
-}
 
-nextPage() {
-  this.page = 2;
-  this.getAllGamesByPage()
-}
-
-previousPage() {
-  if (this.page > 1) {
-    this.page--;
-    this.getAllGamesByPage()
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.loadGames();
+    }
   }
-}
-formatDate(publicacion: { year: number; month: number; day: number }): string {
-  const year = publicacion.year;
-  const month = publicacion.month.toString().padStart(2, '0');
-  const day = publicacion.day.toString().padStart(2, '0');
-  return `${year}/${month}/${day}`;
-}
+
+  canGoNext(): boolean {
+    return this.currentPage < (this.totalGames / this.pageSize);
+  }
+
+  canGoPrev(): boolean {
+    return this.currentPage > 1;
+  }
 
 }

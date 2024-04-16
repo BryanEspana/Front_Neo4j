@@ -27,3 +27,14 @@
   width: 100%;
   justify-content: space-between;
 }
+
+.pagination-controls{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 13px;
+  span{
+    color: white !important;
+  }
+}
