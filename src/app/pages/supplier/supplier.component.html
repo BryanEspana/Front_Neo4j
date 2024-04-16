@@ -1,34 +1,36 @@
 <div class="PageSupplier">
   <h1 class="mrgL1">Solicitar un producto</h1>
-  <div class=" left">
+  <div class="left">
     <div class="input-form">
-      <p-dropdown [options]="Stores" [(ngModel)]="selectedStore" optionLabel="name" [showClear]="true" placeholder="Selecciona una tienda"></p-dropdown>
+      <p-dropdown [options]="Stores" [(ngModel)]="selectedStore" optionLabel="label" [showClear]="true" placeholder="Selecciona una tienda"></p-dropdown>
     </div>
-    <p-button label="Buscar"></p-button>
+    <p-button label="Buscar" (onClick)="fetchGames()"></p-button>
   </div>
-
-  <app-loading  *ngIf="games !== undefined"></app-loading>
-
-<p-dataView #dv [value]="games" [rows]="5" [paginator]="true">
-  <ng-template let-games pTemplate="list"  class="p-dataview-content">
-      <div class="grid grid-nogutter" >
-          <div class="col-12" *ngFor="let item of games; let first = first">
-              <div class="product-item flex align-items-center justify-content-between p-4 border-round surface-card" [ngClass]="{ 'border-top-1 surface-border': !first }">
-                  <img class="product-image w-9 sm:w-16rem xl:w-10rem shadow-2 block mx-auto border-round" [src]="item.image" [alt]="item.title" />
-                  <div class="item-details flex-grow-1 flex align-items-center justify-content-between mx-4">
-                      <div class="text-content">
-                          <div class="text-2xl font-bold text-900">{{ item.title }}</div>
-                          <div class="text-900">{{ item.enterprise }}</div>
-                      </div>
-                      <div class="price-tag text-2xl font-semibold text-900">{{ '$' + item.price }}</div>
-                  </div>
-                  <button pButton icon="pi pi-pencil" class="p-button-rounded" [disabled]="item.inventoryStatus === 'OUTOFSTOCK'"></button>
-                  <button pButton icon="pi pi-trash" class="p-button-rounded" [disabled]="item.inventoryStatus === 'OUTOFSTOCK'"></button>
-
-                </div>
+    <app-loading *ngIf="isLoading"></app-loading>
+  <p-dataView #dv  *ngIf="games.length > 0" [value]="games" [rows]="5" [paginator]="true">
+    <ng-template let-games pTemplate="list" class="p-dataview-content">
+      <div class="grid grid-nogutter">
+        <div class="col-12" *ngFor="let item of games; let first = first">
+          <div class="product-item flex align-items-center justify-content-between p-4 border-round surface-card" [ngClass]="{'border-top-1 surface-border': !first}">
+            <img class="product-image w-9 sm:w-16rem xl:w-10rem shadow-2 block mx-auto border-round" [src]="item.portada" [alt]="item.titulo" />
+            <div class="item-details flex-grow-1 flex align-items-center justify-content-between mx-4">
+              <div class="text-content">
+                <div class="text-2xl font-bold text-900">{{ item.titulo }}</div>
+              </div>
+              <div class="price-tag text-2xl font-semibold text-900">{{ '$' + item.precio }}</div>
+            </div>
+            <button pButton icon="pi pi-pencil" class="p-button-rounded" [disabled]="item.inStock === 0"></button>
+            <button pButton icon="pi pi-trash" class="p-button-rounded" [disabled]="item.inStock === 0"></button>
           </div>
+        </div>
       </div>
-  </ng-template>
-</p-dataView>
+      
+    </ng-template>
+  </p-dataView>
+  <h1 class="message" *ngIf="games.length === 0 && hasSearched">No hay juegos en esta tienda</h1>
+
+  <!-- Mostrar mensaje si no se ha buscado aún -->
+  <h1 class="message" *ngIf="games.length === 0 && !hasSearched">Debes buscar por tienda</h1>
+  
 
 </div>

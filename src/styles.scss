@@ -426,3 +426,10 @@ p-dataView{
     margin: 0rem 7rem;
     margin-top: 5rem;
 }
+.message{
+  display: flex;
+  justify-content: center;
+  background: var(--color-secondary);
+  padding: 2rem 0rem;
+  border-radius: 10px;
+}
