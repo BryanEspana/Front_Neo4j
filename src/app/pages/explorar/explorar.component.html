@@ -1,7 +1,6 @@
 <div class="ExplorarPage">
-
+  <app-loading *ngIf="isloading"></app-loading>
   <p-dataView [value]="games" [rows]="20">
-
     <ng-template let-games pTemplate="list"  class="p-dataview-content">
         <div class="grid grid-nogutter" >
             <div class="col-12" *ngFor="let item of games; let first = first">

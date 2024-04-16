@@ -41,4 +41,13 @@ getGamesByStoreId(storeId: number, page: number = 1, pageSize: number = 10): Obs
 }
 
 
+addGamesByStoreId(storeId: number, games: any[]): Observable<any> {
+  const baseURL = `${API_URL}${GET_GAMES_BY_STORE}`
+  const params = new HttpParams()
+    .set('storeID', storeId.toString());
+
+  // Enviar payload como segundo argumento en la solicitud POST
+  return this.http.post(baseURL, games, { params });
+}
+
 }

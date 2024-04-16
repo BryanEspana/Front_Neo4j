@@ -1,0 +1,32 @@
+<div class="pageAddGame">
+  <p-pickList [source]="sourceGames" [target]="targetGames" sourceHeader="Disponibles" targetHeader="Seleccionados" [dragdrop]="true" [responsive]="true"
+  [sourceStyle]="{ height: '30rem' }" [targetStyle]="{ height: '30rem' }" breakpoint="1400px">
+  <ng-template let-game pTemplate="item">
+    <div class="displayrow2">
+      <div class="displayrow gap">
+          <img class="imgSelected" src="{{ game.portada }}" alt="{{ game.titulo }}" />
+          <div class="flex-1 flex flex-column gap-2">
+              <span class="font-bold">{{ game.titulo }}</span>
+              <div class="flex align-items-center gap-2">
+                  <i class="pi pi-dollar text-sm"></i>
+                  <span>{{ game.precio }}</span>
+              </div>
+          </div>
+      </div>
+      <div>
+        <input type="input" class="inputs cantidad" placeholder="Cantidad">
+      </div>
+    </div>
+  </ng-template>
+</p-pickList>
+<div class="displayrow2">
+  <div class="pagination-controls">
+    <p-button (click)="prevPage()" >Anterior</p-button>
+    <span>Página {{currentPage}}</span>
+    <p-button (click)="nextPage()">Siguiente</p-button>
+  </div>
+  <div>
+    <p-button label="Agregar"  (click)="agregarJuegos()"></p-button>
+  </div>
+</div>
+</div>

@@ -3,6 +3,7 @@ import { Games } from '../Inventario/Inventario.component';
 import { Stores } from 'src/app/interfaces/stores';
 import { GamesService } from 'src/app/services/games/games.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-supplier',
@@ -18,7 +19,8 @@ export class SupplierComponent implements OnInit {
   games: Games[] = [];
 
   constructor(
-    private  gamesService: GamesService
+    private  gamesService: GamesService,
+    private route: Router,
   ) { }
 
   ngOnInit() {
@@ -59,6 +61,19 @@ export class SupplierComponent implements OnInit {
         confirmButtonText: 'Ok'
       });
         }
+  }
+
+  goAddGames(){
+    if (this.selectedStore && this.selectedStore.value) {
+    this.route.navigate(['home/add-games', this.selectedStore.value]);
+  } else {
+    Swal.fire({
+      title: 'Error',
+      text: 'Seleccione una tienda',
+      icon: 'error',
+      confirmButtonText: 'Ok'
+    });
+  }
   }
 
 

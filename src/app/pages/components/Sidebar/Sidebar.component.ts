@@ -56,7 +56,7 @@ export class SidebarComponent implements OnInit {
     this.route.navigate(['home']);
   }
   GoInventario(){
-    this.route.navigate(['home/inventario']);
+    this.route.navigate(['home/supplier']);
   }
   GoCatalogo(){
     this.route.navigate(['home/catalogo']);

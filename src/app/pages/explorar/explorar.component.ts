@@ -17,6 +17,7 @@ export class ExplorarComponent implements OnInit {
   currentPage: number = 1;
   totalGames: number = 10; 
   pageSize: number = 20;
+  isloading: boolean = false;
   private subscription: Subscription = new Subscription();
 
   constructor(
@@ -30,14 +31,17 @@ export class ExplorarComponent implements OnInit {
 
   }
   loadGames() {
+    this.isloading = true;
     console.log('Cargando juegos', this.currentPage);
     this.subscription.unsubscribe();  // Desuscribe la suscripción anterior
     this.subscription = this.gamesService.getAllGames(this.currentPage, this.pageSize).subscribe(
       data => {
         this.games = data;
+        this.isloading = false;
       },
       error => {
         console.error('Error al cargar los juegos:', error);
+        this.isloading = false;
       }
     );
   }

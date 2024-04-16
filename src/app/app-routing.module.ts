@@ -7,6 +7,7 @@ import { DetailGameComponent } from './pages/DetailGame/DetailGame.component';
 import { InventarioComponent } from './pages/Inventario/Inventario.component';
 import { SupplierComponent } from './pages/supplier/supplier.component';
 import { ExplorarComponent } from './pages/explorar/explorar.component';
+import { AddGamesToStoreComponent } from './pages/AddGamesToStore/AddGamesToStore.component';
 
 const routes: Routes = [
   { path:'login', component: LoginComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'inventario', component: InventarioComponent},
       { path: 'supplier', component: SupplierComponent},
       { path: 'explorar', component: ExplorarComponent },
+      { path: 'add-games/:storeId', component: AddGamesToStoreComponent},
       { path: '', redirectTo: 'inicio', pathMatch: 'full' }
     ]
   },

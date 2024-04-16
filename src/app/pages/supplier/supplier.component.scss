@@ -20,13 +20,14 @@
     flex-direction: column;
     flex: 1 1 45%;
     margin: 5px;
-    margin: 1rem;
 }
 .left{
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-right: auto;
+    gap: 10px;
+    margin-bottom: 1rem;
 }
 ::ng-deep .p-paginator {
     background: transparent !important;
@@ -45,4 +46,9 @@
 ::ng-deep .p-dataview .p-dataview-content {
     background: transparent !important;
     color: white !important;
+}
+
+
+:host ::ng-deep p-dataview{
+    margin: auto;
 }

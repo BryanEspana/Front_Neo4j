@@ -34,6 +34,9 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { LoadingComponent } from './pages/components/loading/loading.component';
 import { SupplierComponent } from './pages/supplier/supplier.component';
 import { ExplorarComponent } from './pages/explorar/explorar.component';
+import { PickListModule } from 'primeng/picklist';
+import { AddGamesToStoreComponent } from './pages/AddGamesToStore/AddGamesToStore.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -49,7 +52,8 @@ import { ExplorarComponent } from './pages/explorar/explorar.component';
     InventarioComponent,
     LoadingComponent,
     SupplierComponent,
-    ExplorarComponent
+    ExplorarComponent,
+    AddGamesToStoreComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,9 @@ import { ExplorarComponent } from './pages/explorar/explorar.component';
     InputIconModule,
     DropdownModule,
     CalendarModule,
-    InputSwitchModule
+    InputSwitchModule,
+    PickListModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
