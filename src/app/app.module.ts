@@ -38,7 +38,7 @@ import { PickListModule } from 'primeng/picklist';
 import { AddGamesToStoreComponent } from './pages/AddGamesToStore/AddGamesToStore.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CrearTiendaComponent } from './pages/InventarioFolder/CrearTienda/CrearTienda.component';
-
+import { RatingModule } from 'primeng/rating';
 
 @NgModule({
   declarations: [
@@ -82,7 +82,8 @@ import { CrearTiendaComponent } from './pages/InventarioFolder/CrearTienda/Crear
     CalendarModule,
     InputSwitchModule,
     PickListModule,
-    DragDropModule
+    DragDropModule,
+    RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

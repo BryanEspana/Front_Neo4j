@@ -1,8 +1,8 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GamesService } from 'src/app/services/games/games.service';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Games } from '../InventarioFolder/Inventario/Inventario.component';
+import Swal from 'sweetalert2';
 
 
 
@@ -19,6 +19,17 @@ export class ExplorarComponent implements OnInit {
   pageSize: number = 20;
   isloading: boolean = false;
   private subscription: Subscription = new Subscription();
+  visible: boolean = false;
+  loading: boolean = false;
+  //Crear Juego
+  tituloGame: string = '';
+  descriptionGame: string = '';
+  portadaGame: string = '';
+  ratingGame: number = 0;
+  precioGame: number = 0;
+  screenshotGame: string = '';
+
+
 
   constructor(
     private gamesService: GamesService,
@@ -71,6 +82,46 @@ export class ExplorarComponent implements OnInit {
 
   canGoPrev(): boolean {
     return this.currentPage > 1;
+  }
+
+  RegisterGame() {
+
+    const GameData = {
+      titulo: this.tituloGame,
+      publicacion: '16/04/2024', 
+      descripcion: this.descriptionGame,
+      portada: this.portadaGame,
+      rating: this.ratingGame,
+      precio: this.precioGame,
+      screenshots: this.screenshotGame
+    };
+
+    this.gamesService.createNewGame(GameData).subscribe(
+      data => {
+        console.log('Juego creado:', data);
+        this.loadGames();
+        this.visible = false;
+        Swal.fire({
+          title: 'Juego creado',
+          text: 'El juego se ha creado con éxito',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        });
+      },
+      error => {
+        console.error('Error al crear el juego:', error);
+        this.visible = false;
+        Swal.fire({
+          title: 'Error',
+          text: 'Error al crear el juego',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        });
+      }
+    );
+  }
+  showDialog() {
+    this.visible = true;
   }
 
 }

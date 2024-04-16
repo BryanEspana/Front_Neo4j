@@ -1,5 +1,8 @@
 <div class="ExplorarPage">
   <app-loading *ngIf="isloading"></app-loading>
+  <div class="displayrow">
+    <p-button class="" label="Agregar videojuego" (click)="showDialog()"></p-button>
+  </div>
   <p-dataView [value]="games" [rows]="20">
     <ng-template let-games pTemplate="list"  class="p-dataview-content">
         <div class="grid grid-nogutter" >
@@ -22,6 +25,46 @@
         </div>
     </ng-template>
 </p-dataView>
+<p-dialog header="Crear videojuego" [(visible)]="visible" [modal]="true" [style]="{ width: '25vw' }" [draggable]="false" [resizable]="false">
+    <div class="formGrup">
+      <!--Titulo-->
+      <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-user" ></button>
+          <input pInputText placeholder="Titulo" [(ngModel)]="tituloGame" />
+      </p-inputGroup>
+      <!--Lastname-->
+      <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-user" ></button>
+          <input pInputText placeholder="Descripción" [(ngModel)]="descriptionGame" />
+      </p-inputGroup>
+      <!--Portada-->
+      <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-user" ></button>
+          <input pInputText placeholder="URL de imagen de portada" [(ngModel)]="portadaGame" />
+      </p-inputGroup>
+      <!--Rating-->
+      <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-user" ></button>
+          <p-rating [(ngModel)]="ratingGame" class="ranking" [cancel]="false"></p-rating>
+        </p-inputGroup>
+      <!--Portada-->
+      <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-user" ></button>
+          <input pInputText placeholder="Precio" [(ngModel)]="precioGame" />
+      </p-inputGroup>
+      <!--Varios screenshots-->
+      <p-inputGroup>
+          <button type="button" class="btnInput" pButton icon="pi pi-user" ></button>
+          <input pInputText placeholder="URL de imagen de screenshot" [(ngModel)]="screenshotGame" /> 
+      </p-inputGroup>
+
+      <div class="ranking2">
+          <p-button label="Ingresar" class="mrL-1 mt1"  [loading]="loading" (onClick)="RegisterGame()"></p-button>
+      </div>
+      
+
+    </div>
+</p-dialog>
 <div class="pagination-controls">
     <p-button (click)="prevPage()" >Anterior</p-button>
     <span>Página {{currentPage}}</span>
