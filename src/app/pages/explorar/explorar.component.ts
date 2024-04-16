@@ -3,6 +3,7 @@ import { GamesService } from 'src/app/services/games/games.service';
 import { Subscription } from 'rxjs';
 import { Games } from '../InventarioFolder/Inventario/Inventario.component';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 
@@ -33,7 +34,7 @@ export class ExplorarComponent implements OnInit {
 
   constructor(
     private gamesService: GamesService,
-    
+    private router: Router
    
   ) { }
 
@@ -123,5 +124,8 @@ export class ExplorarComponent implements OnInit {
   showDialog() {
     this.visible = true;
   }
-
+  viewGameDetails(gameId: number) {
+    this.router.navigate(['home/detail-game', gameId]);
+    console.log("View Game Details", gameId);
+  }
 }

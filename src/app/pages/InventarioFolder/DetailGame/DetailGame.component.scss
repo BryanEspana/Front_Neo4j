@@ -1,7 +1,6 @@
 .ImgDetail{
     height: 80vh; /* Altura completa de la ventana de visualización */
     width: 100%;
-    background-image: linear-gradient(to top, var(--color-primary), transparent), url('/assets/horizonFondo.jpg');
     background-size: cover; 
     background-repeat: no-repeat;
     position: absolute;

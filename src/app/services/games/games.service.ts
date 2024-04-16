@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
-import { CREATE_GAME, CREATE_STORE, GET_ALL_GAMES, GET_GAMES_BY_STORE } from 'src/app/config/backeEndRoutes';
+import { CREATE_GAME, CREATE_STORE, GET_ALL_GAMES, GET_GAMES_BY_STORE, GET_GAME_BY_ID } from 'src/app/config/backeEndRoutes';
 import { API_URL } from 'src/app/config/config';
 import { Games } from 'src/app/interfaces/Games';
 
@@ -59,5 +59,8 @@ createNewStore(storeData: { nombre: string, direccion: string, hasOnline: boolea
 createNewGame(GameData:{titulo:string, publicacion: string, descripcion: string; portada: string; rating:number; precio:number; screenshots:string;}): Observable<any> {
   const baseURL = `${API_URL}${CREATE_GAME}`
   return this.http.post(baseURL, GameData);
+}
+getGameById(id: string): Observable<any> {
+  return this.http.get(`${API_URL}${GET_GAME_BY_ID}${id}`);
 }
 }

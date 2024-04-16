@@ -17,7 +17,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'inicio', component: InicioComponent },
-      { path: 'detail-game', component: DetailGameComponent},
+      { path: 'detail-game/:id', component: DetailGameComponent},
       { path: 'inventario', component: InventarioComponent},
       { path: 'supplier', component: SupplierComponent},
       { path: 'explorar', component: ExplorarComponent },
