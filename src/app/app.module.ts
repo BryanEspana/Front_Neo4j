@@ -33,6 +33,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { LoadingComponent } from './pages/components/loading/loading.component';
 import { SupplierComponent } from './pages/supplier/supplier.component';
+import { ExplorarComponent } from './pages/explorar/explorar.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { SupplierComponent } from './pages/supplier/supplier.component';
     DetailGameComponent,
     InventarioComponent,
     LoadingComponent,
-    SupplierComponent
+    SupplierComponent,
+    ExplorarComponent
   ],
   imports: [
     BrowserModule,

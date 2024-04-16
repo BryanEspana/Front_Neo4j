@@ -1,38 +1,32 @@
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, catchError, map, throwError } from 'rxjs';
+import { GET_ALL_GAMES } from 'src/app/config/backeEndRoutes';
+import { API_URL } from 'src/app/config/config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GamesService {
 
-constructor() { }
+constructor(
+  private http: HttpClient
+) { }
 
 
-//Aqui van los metodos para traer la data 
-getGames(){
-  return [
-    {
-      id: 1,
-      name: 'Super Mario Bros',
-      price: 20,
-      description: 'Juego de aventuras',
-      image: 'https://www.nintendo.com/content/dam/noa/es_LA/games/nes/s/super-mario-bros-switch/super-mario-bros-switch-hero.jpg'
-    },
-    {
-      id: 2,
-      name: 'The Legend of Zelda',
-      price: 30,
-      description: 'Juego de aventuras',
-      image: 'https://www.nintendo.com/content/dam/noa/es_LA/games/nes/t/the-legend-of-zelda-switch/the-legend-of-zelda-switch-hero.jpg'
-    },
-    {
-      id: 3,
-      name: 'Donkey Kong',
-      price: 15,
-      description: 'Juego de aventuras',
-      image: 'https://www.nintendo.com/content/dam/noa/es_LA/games/nes/d/donkey-kong-switch/donkey-kong-switch-hero.jpg'
-    },
+getAllGamesByPage(page: number, pageSize: number): Observable<any> {
+  const url = `${API_URL}${GET_ALL_GAMES}`;
+  let params = new HttpParams();
+    params = params.set('page', page.toString());
+    params = params.set('pageSize', pageSize.toString());
 
-  ]
-}
+    return this.http.get<any>(url, { params }).pipe(
+      map(response => response),
+      catchError(err => {
+        console.error("ERROR al obtener los juegos:", err);
+        return throwError(() => err);
+      })
+    );
+  }
+
 }

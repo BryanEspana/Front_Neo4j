@@ -22,12 +22,12 @@ export class SidebarComponent implements OnInit {
     this.items = [
       {
         label: 'Mi Perfil',
-        icon: 'pi pi-user', // Asegúrate de que los nombres de los iconos sean correctos
+        icon: 'pi pi-user',
         command: () => this.onProfile()
       },
       {
         label: 'Cerrar Sesión',
-        icon: 'pi pi-power-off', // Asegúrate de que los nombres de los iconos sean correctos
+        icon: 'pi pi-power-off',
         command: () => this.onLogout()
       }
     ];
@@ -39,7 +39,7 @@ export class SidebarComponent implements OnInit {
     this.username = user ? user.username : 'No user';
     this.InitialUsername = this.username ? this.username.charAt(0).toUpperCase() : 'N';
     this.rolDefault = user? user.type : 'No user';
-    
+
   }
 
   onProfile() {
@@ -54,12 +54,15 @@ export class SidebarComponent implements OnInit {
   }
   GoInicio(){
     this.route.navigate(['home']);
-  }   
+  }
   GoInventario(){
     this.route.navigate(['home/inventario']);
   }
   GoCatalogo(){
     this.route.navigate(['home/catalogo']);
+  }
+  GoExplorar(){
+    this.route.navigate(['home/explorar']);
   }
 
 }
