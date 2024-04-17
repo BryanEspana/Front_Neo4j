@@ -13,6 +13,6 @@
   </p-orderList>
   <div class="displayrow2">
     <p-dropdown [options]="TiposDePago" [(ngModel)]="selectedTypePayment" optionLabel="label" [showClear]="true" placeholder="Selecciona un Tipo de pago"></p-dropdown>
-    <p-button label="Comprar"></p-button>
+    <p-button label="Comprar" (onClick)="completePurchase()"></p-button>
   </div>
 </div>

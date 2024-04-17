@@ -16,3 +16,5 @@ export const GET_GAME_BY_ID = '/game/';
 export const GET_STORES_BY_GAME = '/game/stores/';
 //eLIMINAR JUEGOS
 export const DELETE_GAME_BY_ID = '/store/inventory';
+//Create orden
+export const CREATE_ORDER = '/user/order';
