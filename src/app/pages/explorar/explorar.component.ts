@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Games } from '../InventarioFolder/Inventario/Inventario.component';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 
 
@@ -13,6 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./explorar.component.scss']
 })
 export class ExplorarComponent implements OnInit {
+  rolDefault: string | null = null;
 
   games: Games[] = [];
   currentPage: number = 1;
@@ -34,12 +36,15 @@ export class ExplorarComponent implements OnInit {
 
   constructor(
     private gamesService: GamesService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
    
   ) { }
 
   ngOnInit() {
     this.loadGames();
+    const user = this.authService.getUser();
+    this.rolDefault = user? user.type : 'No user';
 
   }
   loadGames() {
@@ -128,5 +133,39 @@ export class ExplorarComponent implements OnInit {
     this.router.navigate(['home/detail-game', gameId]);
     console.log("View Game Details", gameId);
   }
+  addToCart(gameId: number) {
+    const gameToAdd = this.games.find(game => game.id === gameId);
+    if (!gameToAdd) {
+      console.error('Juego no encontrado');
+      return;
+    }
+  
+    // Intenta obtener el carrito del localStorage y verifica si existe y es válido antes de parsearlo
+    const cartData = localStorage.getItem('cart');
+    let cart = [];
+    if (cartData) {
+      try {
+        cart = JSON.parse(cartData);
+      } catch (error) {
+        console.error('Error al parsear datos del carrito:', error);
+        // Opcional: Puedes decidir vaciar el carrito si los datos son corruptos
+        localStorage.setItem('cart', JSON.stringify([]));
+        return; // Detiene la ejecución si hay un error al parsear
+      }
+    }
+  
+    // Añade el juego al carrito y actualiza el localStorage
+    cart.push(gameToAdd);
+    localStorage.setItem('cart', JSON.stringify(cart));
+  
+    // Notifica al usuario que el juego ha sido añadido al carrito
+    Swal.fire({
+      title: 'Juego añadido al carrito',
+      text: 'El juego se ha añadido al carrito con éxito',
+      icon: 'success',
+      confirmButtonText: 'Ok'
+    });
+  }
+  
 
 }

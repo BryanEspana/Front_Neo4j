@@ -85,4 +85,8 @@ deleteGame(storeId: number, gameId: number): Observable<any> {
 
   return this.http.delete(baseURL, options);
 }
+
+CartShop(): Observable<any> {
+  throw new Error('Method not implemented.');
+}
 }

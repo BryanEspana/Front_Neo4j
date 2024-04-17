@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { GamesService } from 'src/app/services/games/games.service';
 
 export interface Games{
+  id: number;
 
 }
 
@@ -75,19 +76,7 @@ export class InventarioComponent implements OnInit {
   }
 
   getSeverity (games: Games) {
-    switch (games) {
-        case 'INSTOCK':
-            return 'success';
 
-        case 'LOWSTOCK':
-            return 'warning';
-
-        case 'OUTOFSTOCK':
-            return 'danger';
-
-        default:
-            return null;
-    }
 };
 
 GoSupplierPage(){

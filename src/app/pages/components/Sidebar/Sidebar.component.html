@@ -6,9 +6,7 @@
       <div class="flexmenu">
           <span class="font-bold text-bluegray-50" (click)="GoInicio()">Inicio</span>
           <span class="font-bold text-bluegray-50" (click)="GoInventario()" *ngIf="rolDefault === 'ADMIN'">Inventario</span>
-          <span class="font-bold text-bluegray-50" (click)="GoCatalogo()"  *ngIf="rolDefault !== 'ADMIN'">Catalogo</span>
           <span class="font-bold text-bluegray-50" (click)="GoExplorar()">Explorar</span>
-          <span class="font-bold text-bluegray-50">Perfil</span>
       </div>
   </ng-template>
   <ng-template pTemplate="end">

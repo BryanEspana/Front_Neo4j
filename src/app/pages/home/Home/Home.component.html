@@ -2,5 +2,11 @@
   <app-Sidebar></app-Sidebar>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
+  <p-avatar  icon="pi pi-shopping-cart" pBadge styleClass="mr-5" class="carritoCompras"  [pTooltip]="tooltipContent" tooltipPosition="bottom"  value="4" size="large" (click)="GoShopCart()" ></p-avatar>
+  <ng-template #tooltipContent>
+    <div class="flex align-items-center">
+        <span>Carrito de compras </span>
+    </div>
+  </ng-template>
 </div>
 

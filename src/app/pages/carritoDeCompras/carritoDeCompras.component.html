@@ -1,0 +1,18 @@
+<div class="pageCarrito">
+  <p-orderList [value]="cartGames" header="Carrito de compras">
+    <ng-template let-product pTemplate="item">
+      <div class="displayrow">
+        <img src="{{ product.portada }}" alt="{{ product.titulo }}" class="imgDiv" />
+        <div class="display2">
+          <span class="font-bold">{{ product.titulo }}</span>
+          <span class="font-bold text-900">{{ '$' + product.precio }}</span>
+          <input type="number" [(ngModel)]="product.quantity" placeholder="Cantidad" class="quantity-input" min="1">
+        </div>
+      </div>
+    </ng-template>
+  </p-orderList>
+  <div class="displayrow2">
+    <p-dropdown [options]="TiposDePago" [(ngModel)]="selectedTypePayment" optionLabel="label" [showClear]="true" placeholder="Selecciona un Tipo de pago"></p-dropdown>
+    <p-button label="Comprar"></p-button>
+  </div>
+</div>

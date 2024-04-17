@@ -1,7 +1,7 @@
 <div class="ExplorarPage">
   <app-loading *ngIf="isloading"></app-loading>
   <div class="displayrow">
-    <p-button class="" label="Agregar videojuego" (click)="showDialog()"></p-button>
+    <p-button class="" label="Agregar videojuego" (click)="showDialog()" *ngIf="rolDefault === 'ADMIN'"></p-button>
   </div>
   <p-dataView [value]="games" [rows]="20">
     <ng-template let-games pTemplate="list"  class="p-dataview-content">
@@ -16,6 +16,7 @@
                         </div>
                         <div class="price-tag text-2xl font-semibold text-900">{{ '$' + item.precio }}</div>
                     </div>
+                    <button pButton icon="pi pi-check" class="p-button-rounded" pTooltip="Agregar al carrito" tooltipPosition="top" (click)="addToCart(item.id)"></button>
                     <button pButton icon="pi pi-eye" class="p-button-rounded" pTooltip="Visualizar" tooltipPosition="top" (click)="viewGameDetails(item.id)"></button>
                     <button pButton icon="pi pi-trash" class="p-button-rounded"   pTooltip="Eliminar" tooltipPosition="top" ></button>
 

@@ -39,7 +39,8 @@ import { AddGamesToStoreComponent } from './pages/AddGamesToStore/AddGamesToStor
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CrearTiendaComponent } from './pages/InventarioFolder/CrearTienda/CrearTienda.component';
 import { RatingModule } from 'primeng/rating';
-
+import { CarritoDeComprasComponent } from './pages/carritoDeCompras/carritoDeCompras.component';
+import { OrderListModule } from 'primeng/orderlist';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { RatingModule } from 'primeng/rating';
     SupplierComponent,
     ExplorarComponent,
     AddGamesToStoreComponent,
-    CrearTiendaComponent
+    CrearTiendaComponent,
+    CarritoDeComprasComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,8 @@ import { RatingModule } from 'primeng/rating';
     InputSwitchModule,
     PickListModule,
     DragDropModule,
-    RatingModule
+    RatingModule,
+    OrderListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

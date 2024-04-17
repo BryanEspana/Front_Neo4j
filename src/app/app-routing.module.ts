@@ -9,6 +9,7 @@ import { SupplierComponent } from './pages/InventarioFolder/supplier/supplier.co
 import { ExplorarComponent } from './pages/explorar/explorar.component';
 import { AddGamesToStoreComponent } from './pages/AddGamesToStore/AddGamesToStore.component';
 import { CrearTiendaComponent } from './pages/InventarioFolder/CrearTienda/CrearTienda.component';
+import { CarritoDeComprasComponent } from './pages/carritoDeCompras/carritoDeCompras.component';
 
 const routes: Routes = [
   { path:'login', component: LoginComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
       { path: 'supplier', component: SupplierComponent},
       { path: 'explorar', component: ExplorarComponent },
       { path: 'add-games/:storeId', component: AddGamesToStoreComponent},
-      {path:'create-store', component: CrearTiendaComponent},
+      { path: 'create-store', component: CrearTiendaComponent},
+      { path: 'carrito', component: CarritoDeComprasComponent },
       { path: '', redirectTo: 'inicio', pathMatch: 'full' }
     ]
   },
