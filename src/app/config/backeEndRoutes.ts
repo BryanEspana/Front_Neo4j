@@ -12,3 +12,7 @@ export const CREATE_GAME = '/game/new';
 
 //Get InfoGame by Id
 export const GET_GAME_BY_ID = '/game/';
+//Traer tienda por idGame
+export const GET_STORES_BY_GAME = '/game/stores/';
+//eLIMINAR JUEGOS
+export const DELETE_GAME_BY_ID = '/store/inventory';

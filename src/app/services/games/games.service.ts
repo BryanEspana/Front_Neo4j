@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
-import { CREATE_GAME, CREATE_STORE, GET_ALL_GAMES, GET_GAMES_BY_STORE, GET_GAME_BY_ID } from 'src/app/config/backeEndRoutes';
+import { CREATE_GAME, CREATE_STORE, DELETE_GAME_BY_ID, GET_ALL_GAMES, GET_GAMES_BY_STORE, GET_GAME_BY_ID, GET_STORES_BY_GAME } from 'src/app/config/backeEndRoutes';
 import { API_URL } from 'src/app/config/config';
 import { Games } from 'src/app/interfaces/Games';
 
@@ -62,5 +62,27 @@ createNewGame(GameData:{titulo:string, publicacion: string, descripcion: string;
 }
 getGameById(id: string): Observable<any> {
   return this.http.get(`${API_URL}${GET_GAME_BY_ID}${id}`);
+}
+getStoresByGameId(gameId: string, page: number = 1, pageSize: number = 20): Observable<any> {
+  const params = new HttpParams()
+    .set('page', page.toString())
+    .set('pageSize', pageSize.toString());
+
+  return this.http.get(`${API_URL}${GET_STORES_BY_GAME}${gameId}`, { params });
+}
+
+deleteGame(storeId: number, gameId: number): Observable<any> {
+  const baseURL = `${API_URL}${DELETE_GAME_BY_ID}`
+  const params = new HttpParams()
+    .set('storeID', storeId.toString());
+  const options = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    }),
+    body: [{ gameID: gameId }],
+    params: params
+  };
+
+  return this.http.delete(baseURL, options);
 }
 }

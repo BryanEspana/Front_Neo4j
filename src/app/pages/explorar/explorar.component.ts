@@ -29,7 +29,7 @@ export class ExplorarComponent implements OnInit {
   ratingGame: number = 0;
   precioGame: number = 0;
   screenshotGame: string = '';
-
+  storeId: number = 0;
 
 
   constructor(
@@ -128,4 +128,5 @@ export class ExplorarComponent implements OnInit {
     this.router.navigate(['home/detail-game', gameId]);
     console.log("View Game Details", gameId);
   }
+
 }

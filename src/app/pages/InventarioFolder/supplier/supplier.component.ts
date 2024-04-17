@@ -123,5 +123,44 @@ RegisterStore(){
 closeDialog() {
   this.visible = false;
 }
+viewGameDetails(gameId: number) {
+  this.route.navigate(['home/detail-game', gameId]);
+  console.log("View Game Details", gameId);
+}
 
+DeleteGame(gameId: number) {
+  console.log("selectedStore", this.selectedStore.value);
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: 'No podrás revertir esto',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.value) {
+      this.gamesService.deleteGame(this.selectedStore.value, gameId).subscribe(
+        data => {
+          console.log('Juego eliminado:', data);
+          Swal.fire({
+            title: 'Juego eliminado',
+            text: 'El juego se ha eliminado con éxito',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          });
+          this.fetchGames();
+        },
+        error => {
+          console.error('Error al eliminar el juego:', error);
+          Swal.fire({
+            title: 'Error',
+            text: 'Error al eliminar el juego',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          });
+        }
+      );
+    }
+  });
+}
 }
