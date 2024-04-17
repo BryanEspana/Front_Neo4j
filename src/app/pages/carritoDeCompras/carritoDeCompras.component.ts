@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { GamesService } from 'src/app/services/games/games.service';
 import Swal from 'sweetalert2';
@@ -19,7 +20,8 @@ export class CarritoDeComprasComponent implements OnInit {
   selectedTypePayment: any = null;
   constructor(
     private authService: AuthService,
-    private gameService: GamesService
+    private gameService: GamesService,
+    private route: Router
 
   ) { 
     
@@ -58,6 +60,7 @@ export class CarritoDeComprasComponent implements OnInit {
           icon: 'success',
           confirmButtonText: 'Aceptar'
         });
+        this.route.navigate(['home/inicio']);
 
       },
       error: (error) => {

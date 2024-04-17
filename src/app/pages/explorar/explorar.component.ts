@@ -46,12 +46,13 @@ export class ExplorarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadGames();
     this.loadStores();
+    //this.loadGames();
     const user = this.authService.getUser();
     this.rolDefault = user? user.type : 'No user';
 
   }
+/*
   loadGames() {
     this.isloading = true;
     console.log('Cargando juegos', this.currentPage);
@@ -67,23 +68,24 @@ export class ExplorarComponent implements OnInit {
       }
     );
   }
+*/
   ngOnDestroy() {
     this.subscription.unsubscribe();  // Limpia cuando el componente se destruye
   }
 
   nextPage() {
     this.currentPage++;
-    this.loadGames();
+    //this.loadGames();
     if (this.currentPage < (this.totalGames / this.pageSize)) {
       this.currentPage++;
-      this.loadGames();
+      //this.loadGames();
     }
   }
 
   prevPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
-      this.loadGames();
+      //this.loadGames();
     }
   }
 
@@ -110,7 +112,7 @@ export class ExplorarComponent implements OnInit {
     this.gamesService.createNewGame(GameData).subscribe(
       data => {
         console.log('Juego creado:', data);
-        this.loadGames();
+        //this.loadGames();
         this.visible = false;
         Swal.fire({
           title: 'Juego creado',
@@ -201,17 +203,16 @@ export class ExplorarComponent implements OnInit {
   loadStores() {
     this.gamesService.getAllStores(1, 5).subscribe({
       next: (data) => {
-        this.Stores = data.map((store: { nombre: any; id: any; }) => ({
-          label: store.nombre,  // Asegúrate de que cada tienda tiene un 'nombre' o el campo que necesites mostrar
-          value: store.id        // Asumiendo que cada tienda tiene un 'id'
+        this.Stores = data.map((store: any) => ({
+          label: `${store.id} - ${store.nombre}`, // Combinar ID y nombre
+          value: store.id        
         }));  
-        console.log("Tiendas cargadas:", data);
+        console.log("Tiendas cargadas:", this.Stores); // Asegúrate de loguear this.Stores y no data para ver la transformación
       },
       error: (error) => {
         console.error('Error al cargar las tiendas:', error);
-        // Implementa cualquier lógica adicional para manejar errores aquí, como mostrar un mensaje al usuario
       }
-    });
-    
+    }); 
   }
+  
 }

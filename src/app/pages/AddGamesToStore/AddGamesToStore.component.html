@@ -14,7 +14,7 @@
           </div>
       </div>
       <div>
-        <input type="input" class="inputs cantidad" placeholder="Cantidad">
+        <input type="number" class="inputs cantidad" placeholder="Cantidad" [(ngModel)]="game.stock_amount" min="1">
       </div>
     </div>
   </ng-template>

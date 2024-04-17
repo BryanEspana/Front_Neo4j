@@ -8,7 +8,6 @@
         <p-dropdown [options]="Stores" [(ngModel)]="selectedStore" optionLabel="label" [showClear]="true" placeholder="Selecciona una tienda"></p-dropdown>
         </div>
     <p-button label="Buscar" (onClick)="fetchGames()"></p-button>
-    <p-button (click)="showDialog()" icon="pi pi-external-link" label="Crear tienda"></p-button>
   </div>
   <p-dataView [value]="games" [rows]="20">
     <ng-template let-games pTemplate="list"  class="p-dataview-content">
@@ -19,8 +18,10 @@
                     <div class="item-details flex-grow-1 flex align-items-center justify-content-between mx-4">
                         <div class="text-content">
                             <div class="text-2xl font-bold text-900">{{ item.titulo }}</div>
-                            <div class="text-900">{{ item.formattedDate }}</div>
-                        </div>
+                            <div class="text-900 stock">
+                                <span class="stock">Stock:</span>
+                                {{ item.inStock }}</div>
+                            </div>
                         <div class="price-tag text-2xl font-semibold text-900">{{ '$' + item.precio }}</div>
                     </div>
                     <button pButton icon="pi pi-check" class="p-button-rounded" pTooltip="Agregar al carrito" tooltipPosition="top" (click)="addToCart(item.id)"></button>

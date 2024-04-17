@@ -25,7 +25,10 @@
             <div class="item-details flex-grow-1 flex align-items-center justify-content-between mx-4">
               <div class="text-content">
                 <div class="text-2xl font-bold text-900">{{ item.titulo }}</div>
-              </div>
+                <div class="text-900 stock">
+                  <span class="stock">Stock:</span>
+                  {{ item.inStock }}</div>
+                </div>
               <div class="price-tag text-2xl font-semibold text-900">{{ '$' + item.precio }}</div>
             </div>
             <button pButton icon="pi pi-eye" class="p-button-rounded" pTooltip="Visualizar" tooltipPosition="top" (click)="viewGameDetails(item.id)"></button>

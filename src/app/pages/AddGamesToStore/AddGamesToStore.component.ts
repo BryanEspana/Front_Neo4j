@@ -19,7 +19,7 @@ export class AddGamesToStoreComponent implements OnInit {
   sourceGames?:  any[];
   targetGames?: any[];
   storeId: number = 0;
-
+  stock_amount: number = 1;
   private subscription: Subscription = new Subscription();
   quantities: { [key: number]: number } = {};
 
@@ -43,11 +43,15 @@ export class AddGamesToStoreComponent implements OnInit {
   loadGames() {
     this.isloading = true;
     console.log('Cargando juegos', this.currentPage);
-    this.subscription.unsubscribe();  // Desuscribe la suscripción anterior
+    this.subscription.unsubscribe();  
+    
     this.subscription = this.gamesService.getAllGames(this.currentPage, this.pageSize).subscribe(
       data => {
         this.games = data;
-        this.sourceGames = this.games;
+        this.sourceGames = this.games.map(game => ({
+          ...game,
+          stock_amount: 1  // Inicia cada juego con una cantidad por defecto
+        }));        
         console.log("sourceGmases", this.sourceGames);
         this.isloading = false;
       },
@@ -80,7 +84,7 @@ export class AddGamesToStoreComponent implements OnInit {
   agregarJuegos() {
     const payload = this.targetGames?.map(game => ({
       gameID: game.id,
-      stock_amount: this.quantities[game.id]
+      stock_amount: game.stock_amount
     })) || [];
 
     this.gamesService.addGamesByStoreId(this.storeId, payload).subscribe({
