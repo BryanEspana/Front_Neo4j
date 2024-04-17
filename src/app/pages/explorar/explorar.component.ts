@@ -5,6 +5,7 @@ import { Games } from '../InventarioFolder/Inventario/Inventario.component';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { Stores } from 'src/app/interfaces/stores';
 
 
 
@@ -15,7 +16,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class ExplorarComponent implements OnInit {
   rolDefault: string | null = null;
-
+  Stores: Stores[] = [];
+  selectedStore: any = null;
   games: Games[] = [];
   currentPage: number = 1;
   totalGames: number = 10; 
@@ -24,6 +26,8 @@ export class ExplorarComponent implements OnInit {
   private subscription: Subscription = new Subscription();
   visible: boolean = false;
   loading: boolean = false;
+  hasSearched: boolean = false; 
+  isLoading: boolean = false;
   //Crear Juego
   tituloGame: string = '';
   descriptionGame: string = '';
@@ -43,6 +47,7 @@ export class ExplorarComponent implements OnInit {
 
   ngOnInit() {
     this.loadGames();
+    this.loadStores();
     const user = this.authService.getUser();
     this.rolDefault = user? user.type : 'No user';
 
@@ -166,6 +171,47 @@ export class ExplorarComponent implements OnInit {
       confirmButtonText: 'Ok'
     });
   }
-  
 
+
+  fetchGames() {
+    if (this.selectedStore) {
+      this.hasSearched = true; 
+      this.isLoading = true;
+      this.gamesService.getGamesByStoreId(this.selectedStore.value, this.currentPage).subscribe(
+        data => {
+          this.games = data;
+          console.log("JUEGOS:Games retrieved", data);
+          this.isLoading = false;
+        },
+        error => {
+          console.error('Error al cargar los juegos:', error);
+          this.isLoading = false;
+        }
+      );
+    } else {
+      Swal.fire({
+        title: 'Error',
+        text: 'Seleccione una tienda',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      });
+        }
+  }
+  
+  loadStores() {
+    this.gamesService.getAllStores(1, 5).subscribe({
+      next: (data) => {
+        this.Stores = data.map((store: { nombre: any; id: any; }) => ({
+          label: store.nombre,  // Asegúrate de que cada tienda tiene un 'nombre' o el campo que necesites mostrar
+          value: store.id        // Asumiendo que cada tienda tiene un 'id'
+        }));  
+        console.log("Tiendas cargadas:", data);
+      },
+      error: (error) => {
+        console.error('Error al cargar las tiendas:', error);
+        // Implementa cualquier lógica adicional para manejar errores aquí, como mostrar un mensaje al usuario
+      }
+    });
+    
+  }
 }

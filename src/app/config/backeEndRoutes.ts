@@ -7,6 +7,8 @@ export const GET_ALL_GAMES = '/game/allGames';
 export const GET_GAMES_BY_STORE = '/store/inventory';
 //CREATE STORE
 export const CREATE_STORE = '/store/new';  
+//Get all stores
+export const GET_ALL_STORES = '/store/all';
 //Crear juego
 export const CREATE_GAME = '/game/new'; 
 

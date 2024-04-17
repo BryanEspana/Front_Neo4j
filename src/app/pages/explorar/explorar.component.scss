@@ -50,3 +50,11 @@
   margin: 0;
   padding: 0;
 }
+.left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: auto;
+  gap: 10px;
+  margin-bottom: 1rem;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { GamesService } from 'src/app/services/games/games.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-carritoDeCompras',
@@ -50,13 +51,22 @@ export class CarritoDeComprasComponent implements OnInit {
     this.gameService.createOrder(this.username ?? '', orderDetails).subscribe({
       next: (response) => {
         console.log('Compra realizada con éxito', response);
-        // Limpia el carrito o redirige al usuario a una página de confirmación
         localStorage.removeItem('cart');
-        // Redirecciona o muestra mensaje de éxito
+        Swal.fire({
+          title: 'Compra realizada con éxito',
+          text: 'Gracias por tu compra',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
+
       },
       error: (error) => {
-        console.error('Error al realizar la compra:', error);
-        // Muestra mensaje de error
+        Swal.fire({
+          title: 'Error',
+          text: error.message,
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
       }
     });
   }

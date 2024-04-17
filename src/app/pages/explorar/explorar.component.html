@@ -3,6 +3,13 @@
   <div class="displayrow">
     <p-button class="" label="Agregar videojuego" (click)="showDialog()" *ngIf="rolDefault === 'ADMIN'"></p-button>
   </div>
+  <div class="left">
+        <div class="input-form">
+        <p-dropdown [options]="Stores" [(ngModel)]="selectedStore" optionLabel="label" [showClear]="true" placeholder="Selecciona una tienda"></p-dropdown>
+        </div>
+    <p-button label="Buscar" (onClick)="fetchGames()"></p-button>
+    <p-button (click)="showDialog()" icon="pi pi-external-link" label="Crear tienda"></p-button>
+  </div>
   <p-dataView [value]="games" [rows]="20">
     <ng-template let-games pTemplate="list"  class="p-dataview-content">
         <div class="grid grid-nogutter" >

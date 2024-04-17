@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
-import { CREATE_GAME, CREATE_ORDER, CREATE_STORE, DELETE_GAME_BY_ID, GET_ALL_GAMES, GET_GAMES_BY_STORE, GET_GAME_BY_ID, GET_STORES_BY_GAME } from 'src/app/config/backeEndRoutes';
+import { CREATE_GAME, CREATE_ORDER, CREATE_STORE, DELETE_GAME_BY_ID, GET_ALL_GAMES, GET_ALL_STORES, GET_GAMES_BY_STORE, GET_GAME_BY_ID, GET_STORES_BY_GAME } from 'src/app/config/backeEndRoutes';
 import { API_URL } from 'src/app/config/config';
 import { Games } from 'src/app/interfaces/Games';
 
@@ -90,5 +90,13 @@ createOrder(username: string, orderDetails: any): Observable<any> {
   const baseURL = `${API_URL}${CREATE_ORDER}`
   const params = new HttpParams().set('username', username);
   return this.http.post(baseURL, orderDetails, { params });
+}
+
+getAllStores(page: number, pageSize: number): Observable<any> {
+  const baseURL = `${API_URL}${GET_ALL_STORES}`;
+  const params = new HttpParams()
+    .set('page', page.toString())
+    .set('pageSize', pageSize.toString());
+  return this.http.get(baseURL, {params});
 }
 }
